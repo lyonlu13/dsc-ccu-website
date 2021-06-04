@@ -36,5 +36,25 @@ db.collection("test")
        *    加入到新節點中
        * 4. 使用appendChild將設定好的新節點加到list節點裡面(https://www.w3schools.com/jsref/met_node_appendchild.asp)
        */
+
+      var announcement = document.createElement('div');    
+
+      announcement.classList.add('item');
+
+      var cate = doc.data().category;
+      var title = doc.data().title;
+      var aut = doc.data().author;
+      var con = doc.data().content;
+      var time = doc.data().time;
+
+      announcement.innerHTML=`
+        <div class="category">${cate}</div>
+        <div class="title">${title}</div>
+        <div class="author">${aut}</div>
+        <div class="content">${con}</div>
+        <div class="time">${time}</div>
+      `;
+
+      document.getElementById('list').appendChild(announcement);
     })
   })
