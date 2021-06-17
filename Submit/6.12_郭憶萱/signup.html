@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up</title>
+  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+  <script type="text/javascript" src="signup.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="plate">
+    <h2 class="title">註冊</h1>
+      <div class="row"><input type="email" placeholder="電子郵件" id="email"></div>
+      <div class="row"><input type="password" placeholder="密碼" id="password"></div>
+      <div class="row"><input type="password" placeholder="確認密碼" id="repassword"></div>
+      <div class="actions">
+        <button onclick="signup()">註冊</button>
+      </div>
+  </div>
+</body>
+
+</html>
