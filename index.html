@@ -11,11 +11,11 @@
   <body>
     <div id="navbar">
       <img src="asset/logo.png" alt="DSC_logo">
-      <ul>
-        <li class="nodot"><a href="" class="nocolorNline">主頁</a></li>
-        <li class="nodot"><a href="" class="nocolorNline">公告</a></li>
-        <li class="nodot"><a href="" class="nocolorNline">關於</a></li>
-      </ul>
+      <div id="navtext">
+        <a href="" class="nocolorNline">主頁</a>
+        <a href="" class="nocolorNline">公告</a>
+        <a href="" class="nocolorNline">關於</a>
+      </div>
     </div>
 
     <img src="asset/logo.png" alt="DSC_logo" id="logoimg">
@@ -81,16 +81,22 @@
       <input type="button" value="關於 GDSC" onclick="">
     </div>
     <div id="contact">
-      <h1>聯繫我們</h1>
-      <span>我們會盡快回覆</span>
-      <span class="material-icons" id="personicon">
-        person
-      </span>
-      <input type="text" value="稱呼" name="name" id="name" size="30"><br>
-      <span class="material-icons" id="emailicon">
-        email
-      </span>
-      <input type="text" value="電子郵件" name="email" id="email" size="30">
+      <div id="title">
+        <h1>聯繫我們</h1>
+        <span>我們會盡快回覆</span>
+      </div>
+      <div id="name_icontext">
+        <span class="material-icons" id="personicon">
+          person
+        </span>
+        <input type="text" value="稱呼" name="name" id="name" size="100">
+      </div>
+      <div id="mail_icontext">
+        <span class="material-icons" id="emailicon">
+          email
+        </span>
+        <input type="text" value="電子郵件" name="email" id="email" size="200">
+      </div>
       <textarea type="text" name="message" id="message" size="1000">訊息</textarea><br>
       <input type="submit" value="送出" name="submit" id="submit">
     </div>
