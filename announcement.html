@@ -13,8 +13,8 @@
     <div id="navbar">
       <img src="asset/logo.png" alt="DSC_logo" class="logo-icon">
       <div id="navtext">
-        <a href="index.html" class="no-color-line activity">主頁</a>
-        <a href="announcement.html" class="no-color-line">公告</a>
+        <a href="index.html" class="no-color-line">主頁</a>
+        <a href="announcement.html" class="no-color-line activity">公告</a>
         <a href="" class="no-color-line" id="about">
           <div>
             <span>關於</span>
@@ -42,94 +42,82 @@
       </div>
     </div>
 
-    <!--圖片-->
-    <img src="asset/logo.png" alt="DSC_logo" id="logoimg">
-
     <!--公告-->
-    <div id="announcement">
-      <div class="label-bar"> <!-- position使用relative(用來定位子元件absolute時的位置) -->
-        <h1>公告</h1>
-        <div class="labels"> <!-- 標籤欄使用display:flex來排列分類標籤                  -->
-          <span>全部</span>
-          <span>通知</span>
-          <span>活動</span>
-        </div>
-      
+    <div id="announcement-content">
+        <div class="announcement-label-bar"> <!-- position使用relative(用來定位子元件absolute時的位置) -->
+          <h1>公告</h1>
+          <div class="announcement-labels"> <!-- 標籤欄使用display:flex來排列分類標籤                  -->
+            <span>全部</span>
+            <span>通知</span>
+            <span>活動</span>
+          </div>
         
-        <!-- 滑塊，先用一個通用class，設定position:absolute、文字顏色、圓角    -->
-        <!-- 並用三種不同的class來改變位置與顏色(這邊是假設切換到通知時)       -->
-        <!-- (例如:type-slider-all,type-slider-notification,type-slider-event) -->
-      
-      </div>
-      <div class="items">
-        <ul class="nodot">
-          <a href="" class="no-color-line">
-              <li class="type-slider type-slider-notification">通知</li> 
-              <li class="middle">2021 06/13</li>
-              <li class="title">這是標題公告這是標題公告這是標題公告</li>
-          </a>
-        </ul>
-        <ul class="nodot">
-          <a href="" class="no-color-line">
-              <li class="type-slider type-slider-event">活動</li> 
-              <li class="middle">2021 06/13</li>
-              <li class="title">這是標題公告這是標題公告這是標題公告</li>
-          </a>
-        </ul>
-        <ul class="nodot">
-          <a href="" class="no-color-line">
-              <li class="type-slider type-slider-event">活動</li> 
-              <li class="middle">2021 06/13</li>
-              <li class="title">這是標題公告這是標題公告這是標題公告</li>
-          </a>
-        </ul>
-        <ul class="nodot">
-          <a href="" class="no-color-line">
-              <li class="type-slider type-slider-notification">通知</li> 
-              <li class="middle">2021 06/13</li>
-              <li class="title">這是標題公告這是標題公告這是標題公告</li>
-          </a>
-        </ul>
-      </div>
-      <div id="searchmore">
-        <a href="announcement.html" class="no-color-line">
-          <span>查看更多公告</span><br>
-          <span class="material-icons" id="dropdownicon">
-            arrow_drop_down
-          </span>
-        </a>
-      </div>
+          
+          <!-- 滑塊，先用一個通用class，設定position:absolute、文字顏色、圓角    -->
+          <!-- 並用三種不同的class來改變位置與顏色(這邊是假設切換到通知時)       -->
+          <!-- (例如:type-slider-all,type-slider-notification,type-slider-event) -->
+        
+        </div>
+        <div class="announcement-items">
+          <ul class="nodot">
+            <a href="" class="no-color-line">
+                <li class="type-slider type-slider-notification">通知</li> 
+                <li class="middle">2021 06/13</li>
+                <li class="title">這是標題公告這是標題公告這是標題公告這是標題公告這是標題公告這是標題公告</li>
+            </a>
+          </ul>
+          <ul class="nodot">
+            <a href="" class="no-color-line">
+                <li class="type-slider type-slider-event">活動</li> 
+                <li class="middle">2021 06/13</li>
+                <li class="title">這是標題公告這是標題公告這是標題公告這是標題公告這是標題公告這是標題公告</li>
+            </a>
+          </ul>
+          <ul class="nodot">
+            <a href="" class="no-color-line">
+                <li class="type-slider type-slider-event">活動</li> 
+                <li class="middle">2021 06/13</li>
+                <li class="title">這是標題公告這是標題公告這是標題公告這是標題公告這是標題公告這是標題公告</li>
+            </a>
+          </ul>
+          <ul class="nodot">
+            <a href="" class="no-color-line">
+                <li class="type-slider type-slider-notification">通知</li> 
+                <li class="middle">2021 06/13</li>
+                <li class="title">這是標題公告這是標題公告這是標題公告這是標題公告這是標題公告這是標題公告</li>
+            </a>
+          </ul>
+          <ul class="nodot">
+            <a href="" class="no-color-line">
+                <li class="type-slider type-slider-event">活動</li> 
+                <li class="middle">2021 06/13</li>
+                <li class="title">這是標題公告這是標題公告這是標題公告這是標題公告這是標題公告這是標題公告</li>
+            </a>
+          </ul>
+          <ul class="nodot">
+            <a href="" class="no-color-line">
+                <li class="type-slider type-slider-event">活動</li> 
+                <li class="middle">2021 06/13</li>
+                <li class="title">這是標題公告這是標題公告這是標題公告這是標題公告這是標題公告這是標題公告</li>
+            </a>
+          </ul>
+          <ul class="nodot">
+            <a href="" class="no-color-line">
+                <li class="type-slider type-slider-notification">通知</li> 
+                <li class="middle">2021 06/13</li>
+                <li class="title">這是標題公告這是標題公告這是標題公告這是標題公告這是標題公告這是標題公告</li>
+            </a>
+          </ul>
+          <ul class="nodot">
+            <a href="" class="no-color-line">
+                <li class="type-slider type-slider-notification">通知</li> 
+                <li class="middle">2021 06/13</li>
+                <li class="title">這是標題公告這是標題公告這是標題公告這是標題公告這是標題公告這是標題公告</li>
+            </a>
+          </ul>
+        </div>
     </div>
 
-    <!--簡介-->
-    <div id="introduction">
-      <img src="asset/picture.jpg" alt="team picture">
-      <span>Google Developer Student Clubs</span>
-      <p>簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介</p>
-      <a href="" class="no-color-line">關於 GDSC</a>
-    </div>
-
-    <!--聯繫我們-->
-    <div id="contact">
-      <div id="title">
-        <h1>聯繫我們</h1>
-        <span>我們會盡快回覆</span>
-      </div>
-      <div id="name_icontext">
-        <span class="material-icons" id="personicon">
-          person
-        </span>
-        <input type="text" value="稱呼" name="name" id="name" size="100">
-      </div>
-      <div id="mail_icontext">
-        <span class="material-icons" id="emailicon">
-          email
-        </span>
-        <input type="text" value="電子郵件" name="email" id="email" size="200">
-      </div>
-      <textarea type="text" name="message" id="message" size="1000">訊息</textarea><br>
-      <span id="sent-button" onclick="">送出</span>
-    </div>
 
     <!--頁尾-->
     <footer>
@@ -140,5 +128,5 @@
       </a> 
       <span>Copyright © 2021 GDSC CCU</span>
     </footer>
-  </body>
-</html>
+    </body>
+  </html>
