@@ -112,9 +112,10 @@ html {
   display: none;
 }
 
-#about:hover + #about-content { /*關於的下拉選單-未完成*/
+#about:hover + #about-content { 
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   width: 200px;
   background-color: white;
   box-shadow: 0px 3px 3px #9b9b9b, 0px -1px 2px	#9b9b9b;
@@ -126,9 +127,10 @@ html {
   right: 30px;
 }
 
-#about-content:hover { /*關於的下拉選單-未完成*/
+#about-content:hover { 
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   width: 200px;
   background-color: white;
   box-shadow: 0px 3px 3px #9b9b9b, 0px -1px 2px	#9b9b9b;
@@ -143,11 +145,16 @@ html {
 #about-content a {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   margin: 5px;
   box-shadow: 3px 0px 0px 0px transparent;
 }
 
-#about-content a svg {
+#about-content a span {
+  width: 140px;
+}
+
+#about-content a object {
   margin-right: 10px;
 }
 
@@ -163,7 +170,7 @@ html {
   display: block;
   margin: 5px auto;
   background-color: white;
-  padding: 150px;
+  object-fit: cover;
 }
 
 #announcement {
@@ -308,7 +315,7 @@ html {
   padding: 10px 15px;
   border: none;
   outline: none;
-  color: rgb(146, 145, 145);
+  /*color: rgb(146, 145, 145);*/
 }
 
 #name_icontext, #mail_icontext {
