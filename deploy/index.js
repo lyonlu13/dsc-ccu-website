@@ -9,23 +9,16 @@ router.set('view engine', 'ejs');
 
 //router-index
 router.get('/', function(req, res) {
-    res.render('index');  //represent index.ejs
+    res.render('index', {'title': '首頁'});  //represent index.ejs
 })
 
-//router-announcement
-router.get('/announcement', function(req, res) {
-    res.render('announcement')
-})
+//匯入公告
+var announcement = require('./routers/announcement.js');
+router.use('/announcement', announcement)
 
-//router-about
-router.get('/about/gdsc', function(req, res) {
-    res.send('test')
-})
-
-//router-about-ccu
-router.get('/about/gdsc-ccu', function(req, res) {
-    res.send('test')
-})
+//匯入關於
+var about = require('./routers/about.js');
+router.use('/about', about)
 
 //listen
 router.listen(port, function() {
