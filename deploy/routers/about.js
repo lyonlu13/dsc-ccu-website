@@ -6,11 +6,11 @@ router.get('/', function(req, res) {
 })
 
 router.get('/gdsc', function(req, res) {
-    res.send('djidj')
+    res.send('GDCS')
 })
 
 router.get('/gdsc-ccu', function(req, res) {
-    res.send('gdsc-ccu')
+    res.send('GDSC-CCU')
 })
 
 module.exports = router

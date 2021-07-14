@@ -1,10 +1,13 @@
 <!--導入header-->
 <%- include('header') %>
 
-    <!--導入頁面-->
+<!--setting CSS-->
+<link rel='stylesheet' type='text/css' href='/stylesheets/index.css' />
 
-    <!--圖片-->
-    <img src="asset/logo.png" alt="DSC_logo" id="logoimg">
+<!--導入頁面-->
+
+    <!--圖片(指向public內的資料)-->
+    <img src="/images/logo.png" alt="DSC_logo" id="logoimg">
 
     <!--公告-->
     <div id="announcement">
@@ -27,30 +30,30 @@
         <div class="items">
             <ul class="nodot">
                 <a href="" class="no-color-line">
-                    <li class="type-slider type-slider-notification">通知</li>
-                    <li class="middle">2021 06/13</li>
-                    <li class="title">這是標題公告這是標題公告這是標題公告</li>
+                    <li class="type-slider type-slider-notification"><%= type %></li>
+                    <li class="middle"><%= time %></li>
+                    <li class="title"><%= title %></li>
                 </a>
             </ul>
             <ul class="nodot">
                 <a href="" class="no-color-line">
-                    <li class="type-slider type-slider-event">活動</li>
-                    <li class="middle">2021 06/13</li>
-                    <li class="title">這是標題公告這是標題公告這是標題公告</li>
+                    <li class="type-slider type-slider-event"><%= type %></li>
+                    <li class="middle"><%= time %></li>
+                    <li class="title"><%= title %></li>
                 </a>
             </ul>
             <ul class="nodot">
                 <a href="" class="no-color-line">
-                    <li class="type-slider type-slider-event">活動</li>
-                    <li class="middle">2021 06/13</li>
-                    <li class="title">這是標題公告這是標題公告這是標題公告</li>
+                    <li class="type-slider type-slider-event"><%= type %></li>
+                    <li class="middle"><%= time %></li>
+                    <li class="title"><%= title %></li>
                 </a>
             </ul>
             <ul class="nodot">
                 <a href="" class="no-color-line">
-                    <li class="type-slider type-slider-notification">通知</li>
-                    <li class="middle">2021 06/13</li>
-                    <li class="title">這是標題公告這是標題公告這是標題公告</li>
+                    <li class="type-slider type-slider-notification"><%= type %></li>
+                    <li class="middle"><%= time %></li>
+                    <li class="title"><%= title %></li>
                 </a>
             </ul>
         </div>
@@ -66,10 +69,9 @@
 
     <!--簡介-->
     <div id="introduction">
-        <img src="asset/picture.jpg" alt="team picture">
+        <img src="/images/picture.jpg" alt="team picture">
         <span>Google Developer Student Clubs</span>
-        <p>簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介
-        </p>
+        <p><%= description %></p>
         <a href="" class="no-color-line">關於 GDSC</a>
     </div>
 
@@ -95,5 +97,5 @@
         <span id="sent-button" onclick="">送出</span>
     </div>
 
-    <!--導入footer-->
-    <%- include('footer') %>
+<!--導入footer-->
+<%- include('footer') %>

@@ -7,9 +7,22 @@ var port = process.env.port || 8080;
 router.set('views', './views');
 router.set('view engine', 'ejs');
 
-//router-index
+//setting CSS
+//adding a file named public in folder deploy.
+router.use(express.static(__dirname + '/public'))
+
+//index
+//在這裡更改字串資料
 router.get('/', function(req, res) {
-    res.render('index', {'title': '首頁'});  //represent index.ejs
+    res.render('index', {  //represent index.ejs
+    type: '分類'
+    ,time: '2021 07/14'
+    ,title: '標題'
+    ,description: `愛情走的太快 就像龍捲風
+    不能承受 我已無處可躲
+    我不要再想 我不要再想
+    我不 我不 我不要再想你`
+    });  
 })
 
 //匯入公告
