@@ -1,14 +1,16 @@
 var express = require('express');
-//var engine = require('ejs-locals');
 var router = express();
 var port = process.env.port || 8080;
+//寫了下面這一行就不能動
+//var engine = require('ejs-locals');
 
+
+//寫了下面這一行就不能動
 //router.engine('ejs', engine);
 router.set('views', './views');
 router.set('view engine', 'ejs');
 
 //setting CSS
-//adding a file named public in folder deploy.
 router.use(express.static(__dirname + '/public'))
 
 //index

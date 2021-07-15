@@ -2,7 +2,7 @@ var express = require('express')
 var router = express.Router()
 
 router.get('/', function(req, res) {
-    res.render('about')
+    res.send('about')
 })
 
 router.get('/gdsc', function(req, res) {
