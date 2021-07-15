@@ -10,7 +10,7 @@ var port = process.env.port || 8080;
 router.set('views', './views');
 router.set('view engine', 'ejs');
 
-//setting CSS
+//setting CSS and picture.
 router.use(express.static(__dirname + '/public'))
 
 //index
