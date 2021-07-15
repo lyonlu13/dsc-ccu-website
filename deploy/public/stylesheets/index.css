@@ -123,7 +123,7 @@ html {
   color: initial;
   padding: 10px 5px;
   position: absolute;
-  top: 50px;
+  top: 48px;
   right: 30px;
 }
 
@@ -138,7 +138,7 @@ html {
   color: initial;
   padding: 10px 5px;
   position: absolute;
-  top: 50px;
+  top: 48px;
   right: 30px;
 }
 
@@ -442,4 +442,15 @@ footer #fb-icon {
 footer #fb-icon span {
   color: #3b5999;
   margin-left: 10px;
+}
+
+#fb-icon svg {
+  fill: #3b5999;
+}
+
+#fb-icon:hover > svg, #fb-icon:hover > span, #fb-icon:hover {
+  fill: white;
+  color: white;
+  background-color: #3b5999;
+  transition: color 1.5s, fill 1.5s;
 }
