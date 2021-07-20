@@ -7,6 +7,7 @@ router.get('/', function(req, res) {
         type: '日記'
         ,time: '2021 07/14'
         ,title: '今天天氣真好'
+        ,isHomePage:false
     })
 })
 
