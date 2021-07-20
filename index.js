@@ -1,4 +1,4 @@
-// firebase 設定參數
+// ---------------------------------------------------------------設定firebase---------------------------------------------------------------
 const firebaseConfig = {
   apiKey: "AIzaSyBi8ENY3mtEyY2Csyd8VAOecltsqv_ROFY",
   authDomain: "dsc-ccu-website.firebaseapp.com",
@@ -10,91 +10,73 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics()
-
+firebase.analytics();
+//指定資料庫物件
+var db = firebase.firestore();
   
-  //指定資料庫物件
-  var db = firebase.firestore()
-  
-  //公告
-  //獲取document中的list節點
-  var list = document.querySelector("#items")
-  //獲取特定集合的所有文件
-  db.collection("announcement").orderBy("date").get().then((querySnapshot) => {querySnapshot.forEach((doc) => {console.log(doc.id, " => ", doc.data())
-        var announcement = document.createElement("div");
-        announcement.classList.add("nodot");
-        let thedate = doc.data().date.toDate();
-        function getDate()
-        {
-            let dateObj = new Date(thedate);
-            let month = dateObj.getMonth()+1;
-            let year = dateObj.getFullYear();
-            let date = dateObj.getDate();
-            return `${year} ${month}/${date}`;
-        }
+//---------------------------------------------------------------公告------------------------------------------------------------------------------//
+//當按下全部鍵
+window.onload = function(){
+    document.getElementById('all').onclick = function(){
+      updateAnnouncement(0);
+    }
 
-        var notification = false;
-        var event = false;
-        document.getElementById('announcement-all').onclick = function(){ notification = false; event = false;}
-        document.getElementById('announcement-notification').onclick = function(){ notification = true;event = false;}
-        document.getElementById('announcement-event').onclick = function(){ notification = false;event = true;}
-        if(!notification&&!event){ 
-          if(doc.data().type == "notification"){
-            announcement.innerHTML =
-            `<ul class="nodot">
-            <a href="" class="no-color-line">
-                <li class="type-slider type-slider-notification">${doc.data().type}</li> 
-                <li class="middle">${getDate()}</li>
-                <li class="title">${doc.data().title}</li>
-            </a>
-            </ul>`;
-          }
-          if(doc.data().type == "event"){
-            announcement.innerHTML =
-            `<ul class="nodot">
-            <a href="" class="no-color-line">
-                <li class="type-slider type-slider-event">${doc.data().type}</li> 
-                <li class="middle">${getDate()}</li>
-                <li class="title">${doc.data().title}</li>
-            </a>
-            </ul>`;
-          }
-          document.getElementById("items").appendChild(announcement);
-        }else if(notification&&!event){
-          if(doc.data().type == "notification"){
-          announcement.innerHTML =
-            `<ul class="nodot">
-            <a href="" class="no-color-line">
-                <li class="type-slider type-slider-notification">${doc.data().type}</li> 
-                <li class="middle">${getDate()}</li>
-                <li class="title">${doc.data().title}</li>
-            </a>
-            </ul>`;
-          }
-          document.getElementById("items").appendChild(announcement);
-        }else{
-          if(doc.data().type == "event"){
-          announcement.innerHTML =
-            `<ul class="nodot">
-            <a href="" class="no-color-line">
-                <li class="type-slider type-slider-event">${doc.data().type}</li> 
-                <li class="middle">${getDate()}</li>
-                <li class="title">${doc.data().title}</li>
-            </a>
-            </ul>`;
-          }
-          document.getElementById("items").appendChild(announcement);
-        }
-        
-      
-    })
-  })
+    //當按下通知
+    document.getElementById('notification').onclick = function(){
+      updateAnnouncement(1);
+    }
 
- //聯繫我們
-var InsertName,  InsertEmail,  InsertMessage;
-let today = new Date();
-var ref = db.collection('report').doc();
- window.onload = function(){
+    //當按下活動
+    document.getElementById('event').onclick = function(){
+      updateAnnouncement(2);
+    }
+
+
+    function updateAnnouncement(type){
+      let condition = [["!=",""],["==","notification"],["==","event"]]
+      db.collection("announcement").where("type", condition[type][0], condition[type][1])
+      .get()
+      .then((querySnapshot) => {
+        //清空列表資料
+        let element = document.getElementById("items");
+        while (element.firstChild) {
+          element.removeChild(element.firstChild);
+        }
+        //$( ".items" ).empty();
+        querySnapshot.forEach((doc) => {
+          console.log(doc.id, " => ", doc.data())
+          //加入公告
+          var announcement = document.createElement("div");
+          announcement.classList.add("items");
+          let thedate = doc.data().date.toDate();
+          function getDate()
+          {
+              let dateObj = new Date(thedate);
+              let month = dateObj.getMonth()+1;
+              let year = dateObj.getFullYear();
+              let date = dateObj.getDate();
+              return `${year}/${month}/${date}`;
+          }
+          announcement.innerHTML =
+          `<ul id = "nodot" class="nodot">
+            <a href="" class="no-color-line">
+              <li class="type-slider type-slider-${doc.data().type}">${doc.data().type}</li> 
+              <li class="middle">${getDate()}</li>
+              <li class="title">${doc.data().title}</li>
+            </a>
+          </ul>`; 
+          document.getElementById("items").appendChild(announcement); 
+        });
+      })
+      .catch((error) => {
+          //Todo(處理錯誤)
+      });
+      }
+    //----------------------------------------------------------聯繫我們-------------------------------------------------------------------------//
+    var InsertName,  InsertEmail,  InsertMessage;
+    let today = new Date();
+    var ref = db.collection('report').doc();
+
     document.getElementById('sent-button').onclick = function(){
       InsertName = document.getElementById('name').value;
       InsertEmail = document.getElementById('email').value;
@@ -108,6 +90,5 @@ var ref = db.collection('report').doc();
         });
         alert('感謝你的回饋');
       }else{alert('請確實輸入資料')}
-      
     }
- }
+}

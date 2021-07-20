@@ -1,6 +1,14 @@
-<!--導入header-->
-<%- include('header') %>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel='stylesheet' type='text/css' href='/stylesheets/index.css' />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>GDSC CCU</title>
+</head>
     <!--導覽列-->
     <div id="navbar">
         <img src="/images/logo.png" alt="DSC_logo" class="logo-icon">
@@ -25,83 +33,142 @@
         </div>
     </div>
 
-    <!--公告-->
-    <div id="announcement-content">
-        <div class="announcement-label-bar">
-            <!-- position使用relative(用來定位子元件absolute時的位置) -->
-            <h1>公告</h1>
-            <div class="announcement-labels">
-                <!-- 標籤欄使用display:flex來排列分類標籤                  -->
-                <span>全部</span>
-                <span>通知</span>
-                <span>活動</span>
+
+<body>
+
+    <!--導入header-->
+    <%- include('header') %>
+
+
+        <!--公告-->
+        <div id="announcement-content">
+            <div class="announcement-label-bar">
+                <!-- position使用relative(用來定位子元件absolute時的位置) -->
+                <h1>公告</h1>
+                <div class="announcement-labels">
+                    <!-- 標籤欄使用display:flex來排列分類標籤                  -->
+                    <span>全部</span>
+                    <span>通知</span>
+                    <span>活動</span>
+                </div>
+
+
+                <!-- 滑塊，先用一個通用class，設定position:absolute、文字顏色、圓角    -->
+                <!-- 並用三種不同的class來改變位置與顏色(這邊是假設切換到通知時)       -->
+                <!-- (例如:type-slider-all,type-slider-notification,type-slider-event) -->
+
             </div>
-
-
-            <!-- 滑塊，先用一個通用class，設定position:absolute、文字顏色、圓角    -->
-            <!-- 並用三種不同的class來改變位置與顏色(這邊是假設切換到通知時)       -->
-            <!-- (例如:type-slider-all,type-slider-notification,type-slider-event) -->
-
+            <div class="announcement-items">
+                <ul class="nodot">
+                    <a href="" class="no-color-line">
+                        <li class="type-slider type-slider-notification">
+                            <%= type %>
+                        </li>
+                        <li class="middle">
+                            <%= time %>
+                        </li>
+                        <li class="title">
+                            <%= title %>
+                        </li>
+                    </a>
+                </ul>
+                <ul class="nodot">
+                    <a href="" class="no-color-line">
+                        <li class="type-slider type-slider-event">
+                            <%= type %>
+                        </li>
+                        <li class="middle">
+                            <%= time %>
+                        </li>
+                        <li class="title">
+                            <%= title %>
+                        </li>
+                    </a>
+                </ul>
+                <ul class="nodot">
+                    <a href="" class="no-color-line">
+                        <li class="type-slider type-slider-event">
+                            <%= type %>
+                        </li>
+                        <li class="middle">
+                            <%= time %>
+                        </li>
+                        <li class="title">
+                            <%= title %>
+                        </li>
+                    </a>
+                </ul>
+                <ul class="nodot">
+                    <a href="" class="no-color-line">
+                        <li class="type-slider type-slider-notification">
+                            <%= type %>
+                        </li>
+                        <li class="middle">
+                            <%= time %>
+                        </li>
+                        <li class="title">
+                            <%= title %>
+                        </li>
+                    </a>
+                </ul>
+                <ul class="nodot">
+                    <a href="" class="no-color-line">
+                        <li class="type-slider type-slider-event">
+                            <%= type %>
+                        </li>
+                        <li class="middle">
+                            <%= time %>
+                        </li>
+                        <li class="title">
+                            <%= title %>
+                        </li>
+                    </a>
+                </ul>
+                <ul class="nodot">
+                    <a href="" class="no-color-line">
+                        <li class="type-slider type-slider-event">
+                            <%= type %>
+                        </li>
+                        <li class="middle">
+                            <%= time %>
+                        </li>
+                        <li class="title">
+                            <%= title %>
+                        </li>
+                    </a>
+                </ul>
+                <ul class="nodot">
+                    <a href="" class="no-color-line">
+                        <li class="type-slider type-slider-notification">
+                            <%= type %>
+                        </li>
+                        <li class="middle">
+                            <%= time %>
+                        </li>
+                        <li class="title">
+                            <%= title %>
+                        </li>
+                    </a>
+                </ul>
+                <ul class="nodot">
+                    <a href="" class="no-color-line">
+                        <li class="type-slider type-slider-notification">
+                            <%= type %>
+                        </li>
+                        <li class="middle">
+                            <%= time %>
+                        </li>
+                        <li class="title">
+                            <%= title %>
+                        </li>
+                    </a>
+                </ul>
+            </div>
         </div>
-        <div class="announcement-items">
-            <ul class="nodot">
-                <a href="" class="no-color-line">
-                    <li class="type-slider type-slider-notification"><%= type %></li>
-                    <li class="middle"><%= time %></li>
-                    <li class="title"><%= title %></li>
-                </a>
-            </ul>
-            <ul class="nodot">
-                <a href="" class="no-color-line">
-                    <li class="type-slider type-slider-event"><%= type %></li>
-                    <li class="middle"><%= time %></li>
-                    <li class="title"><%= title %></li>
-                </a>
-            </ul>
-            <ul class="nodot">
-                <a href="" class="no-color-line">
-                    <li class="type-slider type-slider-event"><%= type %></li>
-                    <li class="middle"><%= time %></li>
-                    <li class="title"><%= title %></li>
-                </a>
-            </ul>
-            <ul class="nodot">
-                <a href="" class="no-color-line">
-                    <li class="type-slider type-slider-notification"><%= type %></li>
-                    <li class="middle"><%= time %></li>
-                    <li class="title"><%= title %></li>
-                </a>
-            </ul>
-            <ul class="nodot">
-                <a href="" class="no-color-line">
-                    <li class="type-slider type-slider-event"><%= type %></li>
-                    <li class="middle"><%= time %></li>
-                    <li class="title"><%= title %></li>
-                </a>
-            </ul>
-            <ul class="nodot">
-                <a href="" class="no-color-line">
-                    <li class="type-slider type-slider-event"><%= type %></li>
-                    <li class="middle"><%= time %></li>
-                    <li class="title"><%= title %></li>
-                </a>
-            </ul>
-            <ul class="nodot">
-                <a href="" class="no-color-line">
-                    <li class="type-slider type-slider-notification"><%= type %></li>
-                    <li class="middle"><%= time %></li>
-                    <li class="title"><%= title %></li>
-                </a>
-            </ul>
-            <ul class="nodot">
-                <a href="" class="no-color-line">
-                    <li class="type-slider type-slider-notification"><%= type %></li>
-                    <li class="middle"><%= time %></li>
-                    <li class="title"><%= title %></li>
-                </a>
-            </ul>
-        </div>
-    </div>
-    
+
+</body>
+
 <!--導入footer-->
 <%- include('footer') %>
+
+</html>
