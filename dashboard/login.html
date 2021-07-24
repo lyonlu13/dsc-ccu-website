@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="styles/dashboard.css" rel="stylesheet" type="text/css"> <!--用同一個嗎??-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>GDSC CCU</title>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script> 
+  </head>
+  <body>
+    <!--標題-->
+    <div id="login-title">
+      <h1>登入管理系統</h1>
+    </div>
+
+    <!--logo-->
+    <img src="asset/logo.png" alt="DSC_logo" id="logoimg">
+    
+    <!--電子郵件與密碼輸入處-->
+    <div id="email-password">
+      <div id="email-icon-text">
+          <span class="material-icons" id="email-icon">
+            email
+          </span>
+          <input type="text" placeholder="電子郵件" name="email" id="email" size="200">
+      </div>
+      <div id="password-icon-text">
+          <span class="material-icons" id="password-icon">
+            password
+          </span>
+          <input type="password" placeholder="密碼" name="password" id="password" size="200">
+      </div>
+    </div>
+
+    <!--登入與註冊按鈕-->
+    <div id="login-register">
+        <span onclick="" id="login-button">
+          登入
+          <span class="material-icons" id="login-icon">
+            login
+          </span>
+        </span>
+        <span onclick="location.href='register.html'" id="register-button">
+          註冊
+          <span class="material-icons" id="register-icon">
+          assignment
+          </span>
+        </span>
+    </div>
+  </body>
+</html>
