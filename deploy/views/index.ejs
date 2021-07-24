@@ -10,38 +10,12 @@
     <title>GDSC CCU</title>
 </head>
 
-    <!--導覽列-->
-    <div id="navbar">
-        <img src="/images/logo.png" alt="DSC_logo" class="logo-icon">
-        <div id="navtext">
-          <a href="index.html" class="no-color-line activity">主頁</a>
-          <a href="announcement.html" class="no-color-line">公告</a>
-          <a href="" class="no-color-line" id="about">
-            <div>
-              <span>關於</span>
-              <span class="material-icons">
-                arrow_drop_down
-              </span>
-            </div>
-          </a>
-          <div id="about-trigger">
-            <div id="about-content">
-              <a href="" class="no-color-line"><object data="dsc_icon.svg" ></object><span> 關於 GDSC</span></a>
-              <a href="" class="no-color-line"><object data="dsc_icon.svg" ></object><span> 關於 GDSC CCU</span></a>
-              <a href="" class="no-color-line"><object data="facebook.svg" ></object><span> Facebook</span></a>
-            </div>
-          </div>
-        </div>
-      </div>
 
 <body>
-    
-    <!--導入header-->
-    <%- include('header') %>
+        <!--導入header-->
+        <%- include('header') %>
 
         <!--導入頁面-->
-
-
         <!--圖片-->
         <!-- 指向public內的資料 -->
         <img src="/images/logo.png" alt="DSC_logo" id="logoimg">
@@ -64,62 +38,59 @@
                 <!-- (例如:type-slider-all,type-slider-notification,type-slider-event) -->
 
             </div>
-            <div class="items">
+
+            <div id = "items" class="items">
                 <ul class="nodot">
-                    <a href="" class="no-color-line">
-                        <li class="type-slider type-slider-notification">
-                            <%= type %>
-                        </li>
-                        <li class="middle">
-                            <%= time %>
-                        </li>
-                        <li class="title">
-                            <%= title %>
-                        </li>
-                    </a>
+                    <% for(var i = 0; i<rows.length; i++) {%>
+                        <% if(rows[i].type == 'notification') {%>  
+                                <a href="" class="no-color-line">
+                                        <li class="type-slider type-slider-notification">
+                                            <%= rows[i].type %>  
+                                        </li>
+                                        <li class="middle">
+                                            <%= rows[i].date %>
+                                        </li>
+                                        <li class="title">
+                                            <%= rows[i].title %>
+                                        </li>
+                                </a>
+                        <% }else { %> 
+                                    <a href="" class="no-color-line">
+                                        <li class="type-slider type-slider-event">
+                                            <%= rows[i].type %>
+                                        </li> 
+                                        <li class="middle">
+                                            <%= rows[i].date %>
+                                        </li>
+                                        <li class="title">
+                                            <%= rows[i].title %>
+                                        </li>
+                                    </a>
+                        <% } %> 
+                    <% } %>
                 </ul>
-                <ul class="nodot">
+                 
+
+                  
+                  <!-- <ul class="nodot">
                     <a href="" class="no-color-line">
-                        <li class="type-slider type-slider-event">
-                            <%= type %>
-                        </li>
-                        <li class="middle">
-                            <%= time %>
-                        </li>
-                        <li class="title">
-                            <%= title %>
-                        </li>
+                        <li class="type-slider type-slider-notification">通知</li> 
+                        <li class="middle">2021 06/13</li>
+                        <li class="title">這是標題公告這是標題公告這是標題公告</li>
                     </a>
-                </ul>
-                <ul class="nodot">
-                    <a href="" class="no-color-line">
-                        <li class="type-slider type-slider-event">
-                            <%= type %>
-                        </li>
-                        <li class="middle">
-                            <%= time %>
-                        </li>
-                        <li class="title">
-                            <%= title %>
-                        </li>
-                    </a>
-                </ul>
-                <ul class="nodot">
-                    <a href="" class="no-color-line">
-                        <li class="type-slider type-slider-notification">
-                            <%= type %>
-                        </li>
-                        <li class="middle">
-                            <%= time %>
-                        </li>
-                        <li class="title">
-                            <%= title %>
-                        </li>
-                    </a>
-                </ul>
+                  </ul> -->
             </div>
+
+            <!-- <div class="items">
+                <ul class="nodot">
+                    <a href="" class="no-color-line">
+                        
+                    </a>
+                </ul>
+            </div> -->
+
             <div id="searchmore">
-                <a href="announcement.html" class="no-color-line">
+                <a href="/announcement" class="no-color-line">
                     <span>查看更多公告</span><br>
                     <span class="material-icons" id="dropdownicon">
                         arrow_drop_down
@@ -156,7 +127,7 @@
                 </span>
                 <input type="text" placeholder="電子郵件" name="email" id="email" size="200">
             </div>
-            <textarea type="text" name="message" id="message" size="1000">訊息</textarea><br>
+            <textarea type="text" name="message" id="message" size="1000" placeholder="訊息"></textarea><br>
             <span id="sent-button" onclick="">送出</span>
         </div>
 </body>

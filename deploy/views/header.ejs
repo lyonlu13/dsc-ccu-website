@@ -1,29 +1,12 @@
-<% if(!isHomePage) {%>
-    <!--公告導覽列-->
-    <div id="navbar">
-        <img src="/images/logo.png" alt="DSC_logo" class="logo-icon">
-        <div id="navtext">
-            <a href="/" class="no-color-line">主頁</a>
-            <a href="/announcement" class="no-color-line activity">公告</a>
-            <a href="" class="no-color-line" id="about">
-                <div>
-                    <span>關於</span>
-                    <span class="material-icons">
-                        arrow_drop_down
-                    </span>
-                </div>
-            </a>
-            <div id="about-content">
-                <a href="" class="no-color-line"><object data="images/dsc_icon.svg"></object><span> 關於 GDSC</span></a>
-                <a href="" class="no-color-line"><object data="/images/dsc_icon.svg"></object><span> 關於 GDSC
-                        CCU</span></a>
-                <a href="" class="no-color-line"><object data="/images/facebook.svg"></object><span> Facebook</span></a>
-            </div>
-        </div>
-    </div>
-<% } %>
-<% else { %>
-    <!--index導覽列-->
+<!-- 
+每次複製完要改的部分
+1. 導覽列連結
+2. svg檔位置 
+-->
+
+<% if(index){ %>
+    <!-- index navbar-->
+    <!--導覽列-->
     <div id="navbar">
         <img src="/images/logo.png" alt="DSC_logo" class="logo-icon">
         <div id="navtext">
@@ -37,12 +20,44 @@
                     </span>
                 </div>
             </a>
-            <div id="about-content">
-                <a href="" class="no-color-line"><object data="images/dsc_icon.svg"></object><span> 關於 GDSC</span></a>
-                <a href="" class="no-color-line"><object data="/images/dsc_icon.svg"></object><span> 關於 GDSC
-                        CCU</span></a>
-                <a href="" class="no-color-line"><object data="/images/facebook.svg"></object><span> Facebook</span></a>
+            <div id="about-trigger">
+                <div id="about-content">
+                    <a href="" class="no-color-line"><object data="/images/dsc_icon.svg"></object><span> 關於
+                            GDSC</span></a>
+                    <a href="" class="no-color-line"><object data="/images/dsc_icon.svg"></object><span> 關於 GDSC
+                            CCU</span></a>
+                    <a href="" class="no-color-line"><object data="/images/facebook.svg"></object><span>
+                            Facebook</span></a>
+                </div>
             </div>
         </div>
     </div>
-<% } %> 
+<% } else{ %>
+        <!-- announcement navbar -->
+        <!--導覽列-->
+        <div id="navbar">
+            <img src="/images/logo.png" alt="DSC_logo" class="logo-icon">
+            <div id="navtext">
+                <a href="/" class="no-color-line">主頁</a>
+                <a href="/announcement" class="no-color-line activity">公告</a>
+                <a href="" class="no-color-line" id="about">
+                    <div>
+                        <span>關於</span>
+                        <span class="material-icons">
+                            arrow_drop_down
+                        </span>
+                    </div>
+                </a>
+                <div id="about-trigger">
+                    <div id="about-content">
+                        <a href="" class="no-color-line"><object data="/images/dsc_icon.svg"></object><span> 關於
+                                GDSC</span></a>
+                        <a href="" class="no-color-line"><object data="/images/dsc_icon.svg"></object><span> 關於 GDSC
+                                CCU</span></a>
+                        <a href="" class="no-color-line"><object data="/images/facebook.svg"></object><span>
+                                Facebook</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+<%} %>
