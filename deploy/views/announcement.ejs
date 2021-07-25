@@ -35,110 +35,43 @@
             </div>
             <div class="announcement-items">
                 <ul class="nodot">
-                    <a href="" class="no-color-line">
-                        <li class="type-slider type-slider-notification">
-                            <%= type %>
-                        </li>
-                        <li class="middle">
-                            <%= time %>
-                        </li>
-                        <li class="title">
-                            <%= title %>
-                        </li>
-                    </a>
+                    <% for(var i = 0; i<rows.length; i++) {%>
+                        <% if(rows[i].type == 'notification') {%>  
+                                <a href="" class="no-color-line">
+                                        <li class="type-slider type-slider-notification">
+                                            <%= rows[i].type %>  
+                                        </li>
+                                        <li class="middle">
+                                            <%= rows[i].date %>
+                                        </li>
+                                        <li class="title">
+                                            <%= rows[i].title %>
+                                        </li>
+                                </a>
+                        <% }else { %> 
+                                    <a href="" class="no-color-line">
+                                        <li class="type-slider type-slider-event">
+                                            <%= rows[i].type %>
+                                        </li> 
+                                        <li class="middle">
+                                            <%= rows[i].date %>
+                                        </li>
+                                        <li class="title">
+                                            <%= rows[i].title %>
+                                        </li>
+                                    </a>
+                        <% } %> 
+                    <% } %>
                 </ul>
-                <ul class="nodot">
-                    <a href="" class="no-color-line">
-                        <li class="type-slider type-slider-event">
-                            <%= type %>
-                        </li>
-                        <li class="middle">
-                            <%= time %>
-                        </li>
-                        <li class="title">
-                            <%= title %>
-                        </li>
-                    </a>
-                </ul>
-                <ul class="nodot">
-                    <a href="" class="no-color-line">
-                        <li class="type-slider type-slider-event">
-                            <%= type %>
-                        </li>
-                        <li class="middle">
-                            <%= time %>
-                        </li>
-                        <li class="title">
-                            <%= title %>
-                        </li>
-                    </a>
-                </ul>
-                <ul class="nodot">
-                    <a href="" class="no-color-line">
-                        <li class="type-slider type-slider-notification">
-                            <%= type %>
-                        </li>
-                        <li class="middle">
-                            <%= time %>
-                        </li>
-                        <li class="title">
-                            <%= title %>
-                        </li>
-                    </a>
-                </ul>
-                <ul class="nodot">
-                    <a href="" class="no-color-line">
-                        <li class="type-slider type-slider-event">
-                            <%= type %>
-                        </li>
-                        <li class="middle">
-                            <%= time %>
-                        </li>
-                        <li class="title">
-                            <%= title %>
-                        </li>
-                    </a>
-                </ul>
-                <ul class="nodot">
-                    <a href="" class="no-color-line">
-                        <li class="type-slider type-slider-event">
-                            <%= type %>
-                        </li>
-                        <li class="middle">
-                            <%= time %>
-                        </li>
-                        <li class="title">
-                            <%= title %>
-                        </li>
-                    </a>
-                </ul>
-                <ul class="nodot">
-                    <a href="" class="no-color-line">
-                        <li class="type-slider type-slider-notification">
-                            <%= type %>
-                        </li>
-                        <li class="middle">
-                            <%= time %>
-                        </li>
-                        <li class="title">
-                            <%= title %>
-                        </li>
-                    </a>
-                </ul>
-                <ul class="nodot">
-                    <a href="" class="no-color-line">
-                        <li class="type-slider type-slider-notification">
-                            <%= type %>
-                        </li>
-                        <li class="middle">
-                            <%= time %>
-                        </li>
-                        <li class="title">
-                            <%= title %>
-                        </li>
-                    </a>
-                </ul>
+                
+                
+                
+                
+                
+               
+               
             </div>
+
         </div>
 
 </body>
