@@ -6,7 +6,7 @@ var admin = require('../firebase')
 const db = admin.firestore()
 var rows = []
 
-db.collection('announcement').get()
+db.collection('announcement').orderBy('date').get()
   .then(snapshot => {
 
     snapshot.forEach(doc => {

@@ -16,7 +16,7 @@ router.use(express.static(__dirname + '/public'))
 const db = admin.firestore()
 var rows = []
 
-db.collection('announcement').get()
+db.collection('announcement').orderBy('date').get()
   .then(snapshot => {
 
     snapshot.forEach(doc => {
