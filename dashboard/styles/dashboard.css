@@ -121,7 +121,7 @@ h1 {
     margin-top: 50px;
 }
 
-/*回報管理頁面*/
+/*回報&公告管理頁面*/
 /*導覽列*/
 
 .nodot {
@@ -181,7 +181,7 @@ h1 {
     color: rgb(245, 65, 65);
 }
 
-/*回報內容*/
+/*回報&公告管理內容*/
 
 .type-slider {
     color: white;
@@ -201,22 +201,203 @@ h1 {
     padding: 5px 20px;
 }
 
+.type-slider-notification {
+    background-color: #f5c43c;
+    padding: 5px 20px;
+}
+.type-slider-event {
+    background-color: #01814A;
+    padding: 5px 20px;
+}
+
 #report-items {
     margin-top: 50px;
 }
   
-#report-items ul {
+#report-items ul, .announcement-items {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     margin-bottom: 20px;
 }
   
-#report-items ul li {
+#report-items ul li, .announcement-items span, .announcement-items a {
     margin: 0 20px;
     font-size: 20px;
 }
   
-#report-items a:hover {
+#report-items a:hover, .announcement-items a:hover {
     color: #3599fc;
+}
+
+.title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 700px;
+    white-space: nowrap;
+}
+
+.material-icons.delete-icon {
+    color: rgb(245, 65, 65);
+    font-size: 35px;
+    margin-right: 10px;
+    margin-left: 30px;
+}
+.material-icons.edit-icon {
+    color: #3599fc;
+    font-size: 35px;
+    margin-left: 10px;
+}
+
+#announcement-management {
+    position: relative;
+}
+#announcement-content
+{
+    position: absolute;
+    top: 120px;
+}
+#add-announcement {
+    color: white;
+    background-color: #2786e6;
+    width: 180px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 30px;
+    padding: 10px;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+/*視窗*/
+/* 後面黑屏那層 */
+#report-window, #add-update-window, #warning-window {    
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+ 
+/* 視窗內容那層 */
+.report-window-content, .add-update-window-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 10px 30px;
+    border-radius: 30px;
+    width: 550px;
+    height: 500px;
+    font-size: 20px;
+    position: relative;
+}
+.warning-window-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 10px 30px;
+    border-radius: 30px;
+    width: 550px;
+    height: 350px;
+    font-size: 20px;
+    position: relative;
+}
+
+/* 處理回報 */
+#dealwith-button {
+    color: white;
+    background-color: #2786e6;
+    text-align: center;
+    border-radius: 30px;
+    padding: 10px 60px;
+    font-size: 25px;
+    position: absolute;
+    bottom: 30px;
+    left: 60px;
+}
+#cancel-button {
+    color: white;
+    background-color: rgb(245, 65, 65);
+    text-align: center;
+    border-radius: 30px;
+    padding: 10px 80px;
+    font-size: 25px;
+    position: absolute;
+    bottom: 30px;
+    right: 60px;
+}
+
+/* 新增/修改公告 */
+#date-icon-text, #title-icon-text, #link-icon-text {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    padding-left: 20px;
+    border-radius: 40px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 3px rgb(184, 181, 181);
+    background-color: white;
+}
+
+#date-icon {
+    color: rgb(245, 65, 65);
+    font-size: 30px;
+}
+#title-icon {
+    color: rgb(16, 161, 3);
+    font-size: 30px;
+}
+#link-icon {
+    color: #2786e6;
+    font-size: 30px;
+}
+
+#date, #title-text, #link {
+    width: 50%;
+    font-size: 20px;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+}
+
+#finish-button {
+    color: white;
+    background-color: #2786e6;
+    text-align: center;
+    border-radius: 30px;
+    padding: 10px 80px;
+    font-size: 25px;
+    position: absolute;
+    bottom: 30px;
+    left: 60px;
+}
+
+/*刪除公告*/
+#delete-button {
+    color: white;
+    background-color: rgb(245, 65, 65);
+    text-align: center;
+    border-radius: 30px;
+    padding: 10px 80px;
+    font-size: 25px;
+    position: absolute;
+    bottom: 30px;
+    left: 60px;
+}
+
+#delete-cancel-button {
+    color: white;
+    background-color: rgb(105, 105, 105);
+    text-align: center;
+    border-radius: 30px;
+    padding: 10px 80px;
+    font-size: 25px;
+    position: absolute;
+    bottom: 30px;
+    right: 60px;
 }
