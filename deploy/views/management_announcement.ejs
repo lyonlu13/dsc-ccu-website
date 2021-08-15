@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/stylesheets/dashboard.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>GDSC CCU</title>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script> 
+  </head>
+  <body>
+    <!--導覽列-->
+    <%- include('management_header') %> 
+
+    <div id="announcement-management">
+      <!--新增公告按鈕-->
+      <span onclick="" id="add-announcement">新增公告</span>
+      
+      <div id="announcement-content">
+        <div class="announcement-items">
+          <span class="material-icons delete-icon">
+            clear
+          </span>
+          <span class="material-icons edit-icon">
+            edit
+          </span>
+          <span class="type-slider type-slider-event">活動</span>
+          <span class="time">2021/06/13 18:12:12</span>
+          <span class="user-email">user1@gmail.com</span>
+          <a href="" class="no-color-line title">公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告</a>
+        </div>
+
+        <div class="announcement-items">
+          <span class="material-icons delete-icon">
+            clear
+          </span>
+          <span class="material-icons edit-icon">
+            edit
+          </span>
+          <span class="type-slider type-slider-notification">通知</span>
+          <span class="time">2021/06/13 18:12:12</span>
+          <span class="user-email">user1@gmail.com</span>
+          <a href="" class="no-color-line title">公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告</a>
+        </div>
+
+        <div class="announcement-items">
+          <span class="material-icons delete-icon">
+            clear
+          </span>
+          <span class="material-icons edit-icon">
+            edit
+          </span>
+          <span class="type-slider type-slider-notification">通知</span>
+          <span class="time">2021/06/13 18:12:12</span>
+          <span class="user-email">user1@gmail.com</span>
+          <a href="" class="no-color-line title">公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 新增/修改視窗 -->
+    <div id="add-update-window" class="model show">
+      <!-- 視窗內容 -->
+      <div class="add-update-window-content">
+        <h2>新增/修改公告</h2>
+        <div id="date-icon-text">
+          <span class="material-icons" id="date-icon">
+            calendar_today
+          </span>
+          <input type="text" placeholder="日期" name="date" id="date" size="200">
+        </div>
+        <div id="title-icon-text">
+          <span class="material-icons" id="title-icon">
+            title
+          </span>
+          <input type="text" placeholder="標題" name="title-text" id="title-text" size="200">
+        </div>
+        <div id="link-icon-text">
+          <span class="material-icons" id="link-icon">
+            link
+          </span>
+          <input type="text" placeholder="連結" name="link" id="link" size="200">
+        </div>
+        <span onclick="" id="finish-button">完成</span>
+        <span onclick="" id="cancel-button">取消</span>
+      </div>
+    </div>
+
+    <!--警告視窗-->
+    <div id="warning-window" class="model show">
+      <div class="warning-window-content">
+        <h2>警告</h2>
+        <p><b>確定要刪除公告『標題標題』嗎?</b></p>
+        <span onclick="" id="delete-button">刪除</span>
+        <span onclick="" id="delete-cancel-button">取消</span>
+      </div>
+    </div>
+  </body>
+</html>
