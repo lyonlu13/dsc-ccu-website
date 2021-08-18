@@ -4,13 +4,11 @@ var router = express();
 var admin = require('./firebase') 
 var port = process.env.port || 8080;
 
-//using cookies
-var cookieParser = require('cookie-parser')
-router.use(cookieParser())
 
 //setting ejs
 router.set('views', './views');
 router.set('view engine', 'ejs');
+
 
 //setting CSS and picture.
 router.use(express.static(__dirname + '/public'))
@@ -38,7 +36,7 @@ db.collection('announcement').orderBy('date').get()
       var original_date = year + '/' + month + '/' + date;
       rows[i].date = original_date
     }
-  })
+})
 
 
 //index
@@ -55,9 +53,11 @@ router.get('/', function (req, res) {
 var announcement = require('./routers/announcement.js');
 router.use('/announcement', announcement)
 
+
 //匯入關於
 var about = require('./routers/about.js');
 router.use('/about', about)
+
 
 //匯入登入 & 註冊
 var login = require('./routers/login')
@@ -66,19 +66,14 @@ router.use('/login', login)
 var register = require('./routers/register')
 router.use('/register', register)
 
+
+
+//匯入管理
+var management = require('./routers/management.js')
+router.use('/management', management)
+
+
 //listen
 router.listen(port, function () {
   console.log('已開啟 port: ' + port);
 })
-
-//check
-var check = function(req, res, next) {
-  if(req.cookies.uid){
-    return next
-  }
-  res.redirect('/login')
-}
-
-//匯入管理
-var management = require('./routers/management.js')
-router.use('/management', check, management)
