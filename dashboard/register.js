@@ -31,7 +31,8 @@ var firebaseConfig = {
       firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
         .then((userCredential) => {
           // Signed in 
-          //var user = userCredential.user;
+          var uid = auth.currentUser.uid;
+          document.cookie = `uid=${uid};`
           location.assign('report-management.html');
 
         })

@@ -23,21 +23,13 @@ var firebaseConfig = {
       firebase.auth().signInWithEmailAndPassword(email.value, password.value)
         .then((userCredential) => {
           // login
-          document.cookie = 'uid=123456';
-          var cookies = document.cookie;
-          firebase.auth().currentUser.getIdToken(true).then(function(idToken) {
-            
-            location.assign('report-management.html');
-          })
-          .catch(function(error){
-            var errorMessage = error.message;
-            alert(errorMessage)
-          });
+          var uid = auth.currentUser.uid;
+          document.cookie = `uid=${uid};`
+          location.assign('report-management.html');
         })
         .catch((error) => {
           var errorMessage = error.message;
           alert(errorMessage)
         });
       }
-
     }
