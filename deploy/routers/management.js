@@ -6,15 +6,14 @@ var admin = require('../firebase.js')
 var cookieParser = require('cookie-parser')
 router.use(cookieParser())
 
-//test
-router.get('/', function(req, res) {
-    res.cookie('cookie', 'ZhQA0g8Al3O3JSvP0BqFEf70ruQ2')
-    res.send('cookie get!')
-})
-
+//cookie test
+// router.get('/', function(req, res) {
+//     res.cookie('uid', '1RBBQZhIsPZ4qXGFdWbH06k7en82')
+//     res.send('cookie get!')
+// })
 
 router.get('/announcement', function(req, res) {
-    const cookie = req.cookies['cookie']  //edit cookie name
+    const cookie = req.cookies['uid']
     admin
     .auth()
     .getUser(cookie)
@@ -26,13 +25,13 @@ router.get('/announcement', function(req, res) {
         })
     })
     .catch((error) => {
-        console.log('cannot varify.')
+        console.log(error.message)
         res.redirect('/login')
     })
 })
 
 router.get('/report', function(req, res) {
-    const cookie = req.cookies['cookie']  //edit cookie name
+    const cookie = req.cookies['uid']
     admin
     .auth()
     .getUser(cookie)
@@ -44,7 +43,7 @@ router.get('/report', function(req, res) {
         })
     })
     .catch((error) => {
-        console.log('cannot varify.')
+        console.log(error.message)
         res.redirect('/login')
     })
 })

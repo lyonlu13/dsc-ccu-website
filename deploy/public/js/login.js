@@ -23,7 +23,8 @@ var firebaseConfig = {
       firebase.auth().signInWithEmailAndPassword(email.value, password.value)
         .then((userCredential) => {
           // login
-          document.cookie = 'uid=123456';
+          var uid = auth.currentUser.uid
+          document.cookie = `uid=${uid}`;
           var cookies = document.cookie;
           firebase.auth().currentUser.getIdToken(true).then(function(idToken) {
             
