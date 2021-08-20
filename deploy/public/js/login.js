@@ -1,44 +1,35 @@
 // firebase 設定參數
 var firebaseConfig = {
-    apiKey: "AIzaSyBi8ENY3mtEyY2Csyd8VAOecltsqv_ROFY",
-    authDomain: "dsc-ccu-website.firebaseapp.com",
-    projectId: "dsc-ccu-website",
-    storageBucket: "dsc-ccu-website.appspot.com",
-    messagingSenderId: "550816413589",
-    appId: "1:550816413589:web:8acb48cd88e0c6da0b289c",
-    measurementId: "G-6JEYMNP7TN",
-  }
-  
-  //初始化
-  firebase.initializeApp(firebaseConfig)
-  const auth = firebase.auth();
+  apiKey: "AIzaSyBi8ENY3mtEyY2Csyd8VAOecltsqv_ROFY",
+  authDomain: "dsc-ccu-website.firebaseapp.com",
+  projectId: "dsc-ccu-website",
+  storageBucket: "dsc-ccu-website.appspot.com",
+  messagingSenderId: "550816413589",
+  appId: "1:550816413589:web:8acb48cd88e0c6da0b289c",
+  measurementId: "G-6JEYMNP7TN",
+}
 
-  window.onload = function(){
+//初始化
+firebase.initializeApp(firebaseConfig)
+const auth = firebase.auth();
 
-    var email = document.getElementById("email");
-    var password = document.getElementById("password");
+window.onload = function(){
 
-    document.getElementById('login-button').onclick = function(){
-      //safe email and password to firebase
-      firebase.auth().signInWithEmailAndPassword(email.value, password.value)
-        .then((userCredential) => {
-          // login
-          var uid = auth.currentUser.uid
-          document.cookie = `uid=${uid}`;
-          var cookies = document.cookie;
-          firebase.auth().currentUser.getIdToken(true).then(function(idToken) {
-            
-            location.assign('/management/report');
-          })
-          .catch(function(error){
-            var errorMessage = error.message;
-            alert(errorMessage)
-          });
-        })
-        .catch((error) => {
-          var errorMessage = error.message;
-          alert(errorMessage)
-        });
-      }
+  var email = document.getElementById("email");
+  var password = document.getElementById("password");
 
+  document.getElementById('login-button').onclick = function(){
+    //safe email and password to firebase
+    firebase.auth().signInWithEmailAndPassword(email.value, password.value)
+      .then((userCredential) => {
+        // login
+        var uid = auth.currentUser.uid;
+        document.cookie = `uid=${uid};`
+        location.assign('/management/report');
+      })
+      .catch((error) => {
+        var errorMessage = error.message;
+        alert(errorMessage)
+      });
     }
+  }
