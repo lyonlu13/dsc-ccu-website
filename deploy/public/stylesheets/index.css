@@ -474,3 +474,54 @@ footer #fb-icon span {
   background-color: #3b5999;
   transition: background-color, 1.5s;
 }
+
+/*about.html*/
+
+#about-all-content {
+  background-color: white;
+  padding: 20px 25px;
+}
+
+#about-GDSC-CCU h1, #GDSC h1, #club-feature > h1 {
+  box-shadow: -6px 0px 0px 0px #3599fc;
+  padding-left: 10px;
+  color: #3599fc;
+}
+
+#GDSC {
+  margin: 50px 0;
+}
+
+/*#club-feature div {
+  margin: 30px 10px;
+}*/
+
+#Developing h1 {
+  color: rgb(253, 76, 76);
+}
+#Study h1 {
+  color: #f5c43c;
+}
+#Communication h1 {
+  color: rgb(16, 161, 3);
+}
+
+.feature-title {
+  display: flex;
+}
+
+#dev {
+  box-shadow: 6px 0px 0px 0px rgb(253, 76, 76);
+  margin-right: 20px;
+  padding-right: 15px;
+}
+#stu {
+  box-shadow: 6px 0px 0px 0px #f5c43c;
+  margin-right: 20px;
+  padding-right: 15px;
+}
+#com {
+  box-shadow: 6px 0px 0px 0px rgb(16, 161, 3);
+  margin-right: 20px;
+  padding-right: 15px;
+}
