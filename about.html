@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="styles/index.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <title>GDSC CCU</title>
+        <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script> 
+        <script src = "index.js"></script>
+    </head>
+    <body>
+    <!--導覽列-->
+    <div id="navbar">
+      <img src="asset/logo.png" alt="DSC_logo" class="logo-icon">
+      <div id="navtext">
+        <a href="index.html" class="no-color-line">主頁</a>
+        <a href="announcement.html" class="no-color-line">公告</a>
+        <a href="" class="no-color-line activity" id="about">
+          <div>
+            <span>關於</span>
+            <span class="material-icons">
+              arrow_drop_down
+            </span>
+          </div>
+        </a>
+        <div id="about-trigger">
+          <div id="about-content">
+            <a href="about.html" class="no-color-line"><object data="dsc_icon.svg" ></object><span> 關於 GDSC CCU</span></a>
+            <a href="" class="no-color-line"><object data="facebook.svg" ></object><span> Facebook</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--圖片-->
+    <img src="asset/logo.png" alt="DSC_logo" id="logoimg">
+
+    <!--關於內容-->
+    <div id="about-all-content">
+        <div id="about-GDSC-CCU">
+            <h1>關於 GDSC CCU</h1>
+            <p>GDSC CCU 是根據Google學生開發者計劃(Google Developer Student Club)所成立的學生社群。我們希望打造一個Google開發技術的交流環境，而社群成員能夠在大學的這段期間，能夠多方面接觸、多方面嘗試，將自己的想法用在開發這個領域上。</p>
+        </div>
+
+        <div id="GDSC">
+            <h1>Google Developer Student Club</h1>
+            <p>Google學生開發者社群計劃 Google Developer Student Clubs (GDSC) Program是個全球性的社群計劃，由Google Developers所支援，鼓勵各大專院校的學生在校園裡組織社群，招募學習夥伴，一起學習討論Google提倡的開發技術。也為學生們提供豐富的Google技術學習資源、各校計劃成員交流的平台以及職涯發展的協助，幫助學生培養未來就業的技能並累積經驗。同時鼓勵成員在開放的環境中學習知識，並為企業或社群提供好的服務與解決方案。
+            <br>Google社群計劃之一Google為鼓勵技術交流，在全球辦理不同的社群計劃，GDSC即是其中一者，與Google及其他相關社群，如：Google Developers Groups (GDG)、Google Developers Experts (GDE)、Women Techmakers (WTM)等交流合作。
+            </p>
+        </div>
+
+        <div id="club-feature">
+            <h1>社群特色</h1>
+            <div id="Developing">
+                <div class="feature-title">
+                  <h1 id="dev">開發</h1>
+                  <h1>Developing</h1>
+                </div>
+                <p>我們固定於星期二晚上聚會，藉由題目發想、技術交流、開發工具研究等活動，透過這些討論的過程，學習如何將自己的想法去實際的運用出來。
+                <br>我們也會準備一些入門的課程，推廣Google的技術~
+                </p>
+            </div>
+            <div id="Study">
+                <div class="feature-title">
+                  <h1 id="stu">學習</h1> 
+                  <h1>Study</h1>
+                </div>
+                <p>我們固定於星期二晚上聚會，藉由題目發想、技術交流、開發工具研究等活動，透過這些討論的過程，學習如何將自己的想法去實際的運用出來。
+                <br>我們也會準備一些入門的課程，推廣Google的技術~
+                </p>
+            </div>
+            <div id="Communication">
+                <div class="feature-title">
+                  <h1 id="com">交流</h1> 
+                  <h1>Communication</h1>
+                </div>
+                <p>我們固定於星期二晚上聚會，藉由題目發想、技術交流、開發工具研究等活動，透過這些討論的過程，學習如何將自己的想法去實際的運用出來。
+                <br>我們也會準備一些入門的課程，推廣Google的技術~
+                </p>
+            </div>
+        </div>
+    </div>
+</html>
