@@ -223,7 +223,7 @@ html {
 }
 
 .items ul a {
-  width: fit-content;
+  width: 60%;
   display: flex;
   margin: 0 auto;
   align-items: center;
@@ -242,6 +242,7 @@ html {
 .type-slider {
   color: white;
   border-radius: 30px;
+  flex-shrink: 0;
 }
 
 .type-slider-notification {
@@ -252,6 +253,19 @@ html {
 .type-slider-event {
   background-color: #01814A;
   padding: 5px 20px;
+}
+
+.middle {
+  flex-shrink: 0;
+}
+
+.title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /*width: 500px;*/
+  white-space: nowrap;
+  flex-shrink: 1;
+  flex-grow: 1;
 }
 
 #searchmore {
@@ -414,7 +428,7 @@ html {
 }
 
 .announcement-items ul a {
-  width: fit-content;
+  width: 80%;
   display: flex;
   justify-content: flex-start;
   align-items: center;

@@ -186,6 +186,7 @@ h1 {
 .type-slider {
     color: white;
     border-radius: 30px;
+    flex-shrink: 0;
 }
 
 .type-slider-unread {
@@ -208,6 +209,10 @@ h1 {
 .type-slider-event {
     background-color: #01814A;
     padding: 5px 20px;
+}
+
+.time, .user-email {
+    flex-shrink: 0;
 }
 
 #report-items {
@@ -235,6 +240,8 @@ h1 {
     text-overflow: ellipsis;
     width: 700px;
     white-space: nowrap;
+    flex-shrink: 1;
+    flex-grow: 1;
 }
 
 .material-icons.delete-icon {
@@ -286,9 +293,9 @@ h1 {
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-.show {
+/*.show {
     display: block !important;
-}
+}*/
  
 /* 視窗內容那層 */
 .report-window-content, .add-update-window-content {
