@@ -11,7 +11,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+    <script src="/js/report-management.js"></script>  
   </head>
   <body>
     <!--導覽列-->
@@ -20,32 +21,34 @@
 
     <div id="report-items">
       <% for(var i = 0; i < rows.length; i++){ %>
-        <ul class="nodot" data-status="unread">
-          <li class="type-slider type-slider-unread">未讀</li> 
-          <li class="time"> <%= rows[i].date %> </li>
-          <li class="user-email"> <%= rows[i].email %> </li>
-          <a href="" class="no-color-line title-url">
-            <li class="title"> <%= rows[i].content %> </li>
-          </a>
-        </ul>
-
-        <ul class="nodot" data-status="untreated">
-          <li class="type-slider type-slider-untreated">未處理</li> 
-          <li class="time"> <%= rows[i].date %> </li>
-          <li class="user-email"> <%= rows[i].email %> </li>
-          <a href="" class="no-color-line title-url">
-            <li class="title"> <%= rows[i].content %> </li>
-          </a>
-        </ul>
-
-        <ul class="nodot" data-status="finish">
-          <li class="type-slider type-slider-finish">完成</li> 
-          <li class="time"> <%= rows[i].date %> </li>
-          <li class="user-email"> <%= rows[i].email %> </li>
-          <a href="" class="no-color-line title-url">
-            <li class="title"> <%= rows[i].content %> </li>
-          </a>
-        </ul>
+        <% if(rows[i].status == 'unread') { %> 
+          <ul class="nodot" data-status="unread">
+            <li class="type-slider type-slider-unread">未讀</li> 
+            <li class="time"> <%= rows[i].date %> </li>
+            <li class="user-email"> <%= rows[i].email %> </li>
+            <a href="" class="no-color-line title-url">
+              <li class="title"> <%= rows[i].content %> </li>
+            </a>
+          </ul>
+        <% }else if(rows[i].status == 'untreated') { %> 
+          <ul class="nodot" data-status="untreated">
+            <li class="type-slider type-slider-untreated">未處理</li> 
+            <li class="time"> <%= rows[i].date %> </li>
+            <li class="user-email"> <%= rows[i].email %> </li>
+            <a href="" class="no-color-line title-url">
+              <li class="title"> <%= rows[i].content %> </li>
+            </a>
+          </ul>
+        <% }else if(rows[i].status == 'finish') { %> 
+          <ul class="nodot" data-status="finish">
+            <li class="type-slider type-slider-finish">完成</li> 
+            <li class="time"> <%= rows[i].date %> </li>
+            <li class="user-email"> <%= rows[i].email %> </li>
+            <a href="" class="no-color-line title-url">
+              <li class="title"> <%= rows[i].content %> </li>
+            </a>
+          </ul>
+        <% } %> 
       <% } %> 
     </div>
 
