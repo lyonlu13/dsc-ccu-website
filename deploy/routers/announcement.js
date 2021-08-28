@@ -10,7 +10,6 @@ db.collection('announcement').orderBy('date').get()
   .then(snapshot => {
 
     snapshot.forEach(doc => {
-
       const announceDetail = doc.data()
       rows.push(announceDetail)
     })

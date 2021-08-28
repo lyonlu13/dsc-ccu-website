@@ -19,59 +19,34 @@
     <%- include('management_header') %>
 
     <div id="report-items">
-      <ul class="nodot">
-        <li class="type-slider type-slider-unread">未讀</li> 
-        <li class="time">2021/06/13 18:12:12</li>
-        <li class="user-email">user1@gmail.com</li>
-        <a href="" class="no-color-line title-url">
-          <li class="title">客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴</li>
-        </a>
-      </ul>
+      <% for(var i = 0; i < rows.length; i++){ %>
+        <ul class="nodot" data-status="unread">
+          <li class="type-slider type-slider-unread">未讀</li> 
+          <li class="time"> <%= rows[i].date %> </li>
+          <li class="user-email"> <%= rows[i].email %> </li>
+          <a href="" class="no-color-line title-url">
+            <li class="title"> <%= rows[i].content %> </li>
+          </a>
+        </ul>
 
-      <ul class="nodot">
-        <li class="type-slider type-slider-unread">未讀</li> 
-        <li class="time">2021/06/13 18:12:12</li>
-        <li class="user-email">user1@gmail.com</li>
-        <a href="" class="no-color-line title-url">
-          <li class="title">客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴</li>
-        </a>
-      </ul>
+        <ul class="nodot" data-status="untreated">
+          <li class="type-slider type-slider-untreated">未處理</li> 
+          <li class="time"> <%= rows[i].date %> </li>
+          <li class="user-email"> <%= rows[i].email %> </li>
+          <a href="" class="no-color-line title-url">
+            <li class="title"> <%= rows[i].content %> </li>
+          </a>
+        </ul>
 
-      <ul class="nodot">
-        <li class="type-slider type-slider-untreated">未處理</li> 
-        <li class="time">2021/06/13 18:12:12</li>
-        <li class="user-email">user1@gmail.com</li>
-        <a href="" class="no-color-line title-url">
-          <li class="title">客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴</li>
-        </a>
-      </ul>
-
-      <ul class="nodot">
-        <li class="type-slider type-slider-untreated">未處理</li> 
-        <li class="time">2021/06/13 18:12:12</li>
-        <li class="user-email">user1@gmail.com</li>
-        <a href="" class="no-color-line title-url">
-          <li class="title">客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴</li>
-        </a>
-      </ul>
-
-      <ul class="nodot">
-        <li class="type-slider type-slider-finish">完成</li> 
-        <li class="time">2021/06/13 18:12:12</li>
-        <li class="user-email">user1@gmail.com</li>
-        <a href="" class="no-color-line title-url">
-          <li class="title">客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴</li>
-        </a>
-      </ul>
-
-      <ul class="nodot">
-        <li class="type-slider type-slider-finish">完成</li> 
-        <li class="time">2021/06/30 18:12:12</li>
-        <li class="user-email">user1@gmail.com</li>
-        <a href="" class="no-color-line title-url">
-          <li class="title">客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴客訴</li>
-        </a>
-      </ul>
+        <ul class="nodot" data-status="finish">
+          <li class="type-slider type-slider-finish">完成</li> 
+          <li class="time"> <%= rows[i].date %> </li>
+          <li class="user-email"> <%= rows[i].email %> </li>
+          <a href="" class="no-color-line title-url">
+            <li class="title"> <%= rows[i].content %> </li>
+          </a>
+        </ul>
+      <% } %> 
     </div>
 
     <!-- 處理回報視窗 -->

@@ -30,6 +30,32 @@ router.get('/announcement', function(req, res) {
     })
 })
 
+//fetch data from db
+const db = admin.firestore()
+var rows = []
+
+db.collection('report').orderBy('date').get().then(snapshot => {
+    snapshot.forEach(doc => {
+        const reportDetail = doc.data()
+        rows.push(reportDetail)
+    })
+
+    //convert timestamp to date
+    for (var i = 0; i < rows.length; i++) {
+        let thedate = rows[i].date.toDate();
+        let timestamp = new Date(thedate).getTime();
+        let month = new Date(timestamp).getMonth() + 1;
+        let year = new Date(timestamp).getFullYear();
+        let date = new Date(timestamp).getDate();
+        var original_date = year + '/' + month + '/' + date;
+        rows[i].date = original_date
+    }
+})
+
+const testObj = {
+    "status":'unread'
+}
+
 router.get('/report', function(req, res) {
     const cookie = req.cookies['uid']
     admin
@@ -40,12 +66,15 @@ router.get('/report', function(req, res) {
         res.render('management_report', {
             announcement: false
             ,email: userRecord.email 
+            ,rows:rows
         })
     })
     .catch((error) => {
         console.log(error.message)
         res.redirect('/login')
     })
+
+    res.send(testObj)
 })
 
 module.exports = router
