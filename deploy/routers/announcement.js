@@ -30,6 +30,7 @@ db.collection('announcement').orderBy('date').get()
 router.get('/', function(req, res) {
     res.render('announcement',{
         index: false,
+        announcement: true,
         rows: rows
     })
 })
