@@ -14,33 +14,31 @@ router.set('view engine', 'ejs');
 router.use(express.static(__dirname + '/public'))
 
 
-//load data from firestore
-const db = admin.firestore()
-var rows = []
-
-db.collection('announcement').orderBy('date').get()
-  .then(snapshot => {
-
-    snapshot.forEach(doc => {
-
-      const announceDetail = doc.data()
-      rows.push(announceDetail)
-    })
-    //convert timestamp to date
-    for (var i = 0; i < rows.length; i++) {
-      let thedate = rows[i].date.toDate();
-      let timestamp = new Date(thedate).getTime();
-      let month = new Date(timestamp).getMonth() + 1;
-      let year = new Date(timestamp).getFullYear();
-      let date = new Date(timestamp).getDate();
-      var original_date = year + '/' + month + '/' + date;
-      rows[i].date = original_date
-    }
-})
-
-
 //index
 router.get('/', function (req, res) {
+  //load data from firestore
+  const db = admin.firestore()
+  var rows = []
+
+  db.collection('announcement').orderBy('date').get()
+    .then(snapshot => {
+
+      snapshot.forEach(doc => {
+
+        const announceDetail = doc.data()
+        rows.push(announceDetail)
+      })
+      //convert timestamp to date
+      for (var i = 0; i < rows.length; i++) {
+        let thedate = rows[i].date.toDate();
+        let timestamp = new Date(thedate).getTime();
+        let month = new Date(timestamp).getMonth() + 1;
+        let year = new Date(timestamp).getFullYear();
+        let date = new Date(timestamp).getDate();
+        var original_date = year + '/' + month + '/' + date;
+        rows[i].date = original_date
+      }
+  })
   res.render('index', {
     rows: rows,
     description: 'hi everyone <>',

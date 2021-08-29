@@ -22,7 +22,7 @@
     <div id="report-items">
       <% for(var i = 0; i < rows.length; i++){ %>
         <% if(rows[i].status == 'unread') { %> 
-          <ul class="nodot" data-status="unread">
+          <ul class="nodot" data-pack=<% JSON.stringify(rows[i]) %> >
             <li class="type-slider type-slider-unread">未讀</li> 
             <li class="time"> <%= rows[i].date %> </li>
             <li class="user-email"> <%= rows[i].email %> </li>
@@ -31,7 +31,7 @@
             </a>
           </ul>
         <% }else if(rows[i].status == 'untreated') { %> 
-          <ul class="nodot" data-status="untreated">
+          <ul class="nodot" data-pack=<% JSON.stringify(rows[i]) %>>
             <li class="type-slider type-slider-untreated">未處理</li> 
             <li class="time"> <%= rows[i].date %> </li>
             <li class="user-email"> <%= rows[i].email %> </li>
@@ -40,7 +40,7 @@
             </a>
           </ul>
         <% }else if(rows[i].status == 'finish') { %> 
-          <ul class="nodot" data-status="finish">
+          <ul class="nodot" data-pack=<% JSON.stringify(rows[i]) %>>
             <li class="type-slider type-slider-finish">完成</li> 
             <li class="time"> <%= rows[i].date %> </li>
             <li class="user-email"> <%= rows[i].email %> </li>

@@ -4,13 +4,9 @@ var admin = require('../firebase.js')
 
 //setting cookies
 var cookieParser = require('cookie-parser')
+const { json } = require('body-parser')
 router.use(cookieParser())
 
-//cookie test
-// router.get('/', function(req, res) {
-//     res.cookie('uid', '1RBBQZhIsPZ4qXGFdWbH06k7en82')
-//     res.send('cookie get!')
-// })
 
 router.get('/announcement', function(req, res) {
     const cookie = req.cookies['uid']
@@ -30,29 +26,28 @@ router.get('/announcement', function(req, res) {
     })
 })
 
-//fetch data from db
-const db = admin.firestore()
-var rows = []
-var status = ""
-
-db.collection('report').orderBy('date').get().then(snapshot => {
-    snapshot.forEach(doc => {
-        rows.push(doc.data())
-    })
-
-    //convert timestamp to date
-    for (var i = 0; i < rows.length; i++) {
-        let thedate = rows[i].date.toDate();
-        let timestamp = new Date(thedate).getTime();
-        let month = new Date(timestamp).getMonth() + 1;
-        let year = new Date(timestamp).getFullYear();
-        let date = new Date(timestamp).getDate();
-        var original_date = year + '/' + month + '/' + date;
-        rows[i].date = original_date
-    }
-})
-
 router.get('/report', function(req, res) {
+    //fetch data from db
+    const db = admin.firestore()
+    var rows = []
+
+
+    db.collection('report').orderBy('date').get().then(snapshot => {
+        snapshot.forEach(doc => {
+            rows.push(doc.data())
+        })
+
+        //convert timestamp to date
+        for (var i = 0; i < rows.length; i++) {
+            let thedate = rows[i].date.toDate();
+            let timestamp = new Date(thedate).getTime();
+            let month = new Date(timestamp).getMonth() + 1;
+            let year = new Date(timestamp).getFullYear();
+            let date = new Date(timestamp).getDate();
+            var original_date = year + '/' + month + '/' + date;
+            rows[i].date = original_date
+        }
+    })
     const cookie = req.cookies['uid']
     admin
     .auth()
