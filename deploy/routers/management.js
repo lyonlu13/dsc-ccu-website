@@ -4,7 +4,6 @@ var admin = require('../firebase.js')
 
 //setting cookies
 var cookieParser = require('cookie-parser')
-const { json } = require('body-parser')
 router.use(cookieParser())
 
 
@@ -34,7 +33,11 @@ router.get('/report', function(req, res) {
 
     db.collection('report').orderBy('date').get().then(snapshot => {
         snapshot.forEach(doc => {
-            rows.push(doc.data())
+            // rows.push(doc.data())
+            
+            jsonID = {'id': doc.id}
+            merged = Object.assign(jsonID, doc.data())
+            rows.push(merged)
         })
 
         //convert timestamp to date
@@ -47,6 +50,7 @@ router.get('/report', function(req, res) {
             var original_date = year + '/' + month + '/' + date;
             rows[i].date = original_date
         }
+        
     })
     const cookie = req.cookies['uid']
     admin

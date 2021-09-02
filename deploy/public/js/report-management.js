@@ -7,7 +7,7 @@ var firebaseConfig = {
     messagingSenderId: "550816413589",
     appId: "1:550816413589:web:8acb48cd88e0c6da0b289c",
     measurementId: "G-6JEYMNP7TN",
-  }
+}
   
   //初始化
   firebase.initializeApp(firebaseConfig)
@@ -15,7 +15,8 @@ var firebaseConfig = {
   window.onload = function(){
 
     document.getElementById('logout').onclick = function(){
-      document.cookie = `uid = null ;`
+      document.cookie = `uid = ;`
       location.assign('/login');
     }
+
   }
