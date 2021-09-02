@@ -15,7 +15,7 @@ var firebaseConfig = {
   window.onload = function(){
 
     document.getElementById('logout').onclick = function(){
-      document.cookie = `uid = ;`
+      document.cookie = `uid = 0};`
       location.assign('login.html');
     }
   }
