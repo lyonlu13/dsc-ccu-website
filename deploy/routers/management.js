@@ -33,8 +33,6 @@ router.get('/report', function(req, res) {
 
     db.collection('report').orderBy('date').get().then(snapshot => {
         snapshot.forEach(doc => {
-            // rows.push(doc.data())
-            
             jsonID = {'id': doc.id}
             merged = Object.assign(jsonID, doc.data())
             rows.push(merged)
@@ -50,7 +48,7 @@ router.get('/report', function(req, res) {
             var original_date = year + '/' + month + '/' + date;
             rows[i].date = original_date
         }
-        
+        console.log(JSON.stringify(rows))
     })
     const cookie = req.cookies['uid']
     admin
