@@ -20,6 +20,13 @@ var firebaseConfig = {
       location.assign('login.html');
     }
 
+    document.querySelectorAll(".nodot").forEach(function (nodot){
+      nodot.onclick = function (){
+        document.getElementById("report-window").classList.add("show");
+        alert(nodot.dataset.pack);
+      }
+    })
+
     document.getElementById('dealwith-button').onclick = function(){
       document.getElementById("report-window").classList.remove("show");
       window.location.reload();
