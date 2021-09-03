@@ -26,8 +26,17 @@ var firebaseConfig = {
     document.querySelectorAll(".nodot").forEach(function (nodot){
       nodot.onclick = function (){
         document.getElementById("report-window").classList.add("show");
-        alert(JSON.parse(jsonID));
+        //顯示資料
+        var report = document.createElement("div");
+        report.classList.add("report-window");
+        report.innerHTML = `<div class="report-window-content">
+                            <h2>回報</h2>
+                            <p>${nodot.dataset.email}</p>
+                            <p>${nodot.dataset.name}</p>
+                            <p>${nodot.dataset.content}</p>`;
+        document.getElementById("report-window").appendChild(report);
       }
+
     })
 
     //完成建
