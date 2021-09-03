@@ -48,7 +48,7 @@ router.get('/report', function(req, res) {
             var original_date = year + '/' + month + '/' + date;
             rows[i].date = original_date
         }
-        console.log(JSON.stringify(rows[0]))
+        // console.log(rows[0].date)
     })
     const cookie = req.cookies['uid']
     admin
