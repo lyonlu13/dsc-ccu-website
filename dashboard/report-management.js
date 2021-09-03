@@ -14,8 +14,19 @@ var firebaseConfig = {
 
   window.onload = function(){
 
+
     document.getElementById('logout').onclick = function(){
-      document.cookie = `uid = 0};`
+      document.cookie = `uid=;`;
       location.assign('login.html');
+    }
+
+    document.getElementById('dealwith-button').onclick = function(){
+      document.getElementById("report-window").classList.remove("show");
+      window.location.reload();
+    }
+
+    document.getElementById('cancel-button').onclick = function(){
+      document.getElementById("report-window").classList.remove("show");
+      window.location.reload();
     }
   }

@@ -74,6 +74,7 @@ window.onload = function(){
       }
     //----------------------------------------------------------聯繫我們-------------------------------------------------------------------------//
     var InsertName,  InsertEmail,  InsertMessage;
+    var InsertStatus = "unread"
     let today = new Date();
     var ref = db.collection('report').doc();
 
@@ -86,7 +87,8 @@ window.onload = function(){
           content: InsertMessage,
           date: today,
           email: InsertEmail,
-          name : InsertName
+          name : InsertName,
+          status: InsertStatus
         });
         alert('感謝你的回饋');
       }else{alert('請確實輸入資料')}
