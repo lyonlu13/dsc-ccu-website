@@ -22,19 +22,15 @@ var firebaseConfig = {
       location.assign('login.html');
     }
 
+
    //點選 
     document.querySelectorAll(".nodot").forEach(function (nodot){
       nodot.onclick = function (){
         document.getElementById("report-window").classList.add("show");
         //顯示資料
-        var report = document.createElement("div");
-        report.classList.add("report-window");
-        report.innerHTML = `<div class="report-window-content">
-                            <h2>回報</h2>
-                            <p>${nodot.dataset.email}</p>
-                            <p>${nodot.dataset.name}</p>
-                            <p>${nodot.dataset.content}</p>`;
-        document.getElementById("report-window").appendChild(report);
+        document.getElementById("report-window-inner-content").innerHTML = `<p>${nodot.dataset.email}</p>
+                                                              <p>${nodot.dataset.name}</p>
+                                                              <p>${nodot.dataset.content}</p>`;
       }
 
     })
@@ -42,12 +38,18 @@ var firebaseConfig = {
     //完成建
     document.getElementById('dealwith-button').onclick = function(){
       document.getElementById("report-window").classList.remove("show");
+      firebase.database().ref('report/'+nodot.dataset.id).update({
+        status: 'finish',
+      });
       window.location.reload();
     }
 
     //取消
     document.getElementById('cancel-button').onclick = function(){
       document.getElementById("report-window").classList.remove("show");
+      firebase.database().ref('report/'+nodot.dataset.id).update({
+        status: 'read',
+      });
       window.location.reload();
     }
   }
