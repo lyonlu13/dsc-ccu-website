@@ -345,7 +345,7 @@ h1 {
 }
 
 /* 新增/修改公告 */
-#date-icon-text, #title-icon-text, #link-icon-text {
+#date-icon-text, #title-icon-text, #link-icon-text, #type-icon-text {
     display: flex;
     align-items: center;
     align-content: center;
@@ -369,7 +369,12 @@ h1 {
     font-size: 30px;
 }
 
-#date, #title-text, #link {
+#type-icon {
+    color: #FFFF00;
+    font-size: 30px;
+}
+
+#date, #title-text, #link, #type {
     width: 50%;
     font-size: 20px;
     padding: 10px 15px;

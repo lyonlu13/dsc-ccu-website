@@ -16,37 +16,37 @@ router.get('/announcement', function(req, res) {
     db.collection('announcement').orderBy('date').get()
         .then(snapshot => {
 
-        snapshot.forEach(doc => {
-            // const announceDetail = doc.data()
-            // rows.push(announceDetail)
-            jsonID = {'id': doc.id}
-            merged = Object.assign(jsonID, doc.data())
-            rows.push(merged)
-        })
-        //convert timestamp to date
-        for (var i = 0; i < rows.length; i++) {
-            let thedate = rows[i].date.toDate();
-            let timestamp = new Date(thedate).getTime();
-            let month = new Date(timestamp).getMonth() + 1;
-            let year = new Date(timestamp).getFullYear();
-            let date = new Date(timestamp).getDate();
-            //stamp -> exact
-            const pad = num => ('0' + num).slice(-2)
-            const getTimeFromDate = timestamp => {
-                const date = new Date(timestamp * 1000);
-                var hours = date.getHours()
-                var min = date.getMinutes()
-                var sec = date.getSeconds()
+            snapshot.forEach(doc => {
+                // const announceDetail = doc.data()
+                // rows.push(announceDetail)
+                jsonID = {'id': doc.id}
+                merged = Object.assign(jsonID, doc.data())
+                rows.push(merged)
+            })
+            //convert timestamp to date
+            for (var i = 0; i < rows.length; i++) {
+                let thedate = rows[i].date.toDate();
+                let timestamp = new Date(thedate).getTime();
+                let month = new Date(timestamp).getMonth() + 1;
+                let year = new Date(timestamp).getFullYear();
+                let date = new Date(timestamp).getDate();
+                //stamp -> exact
+                const pad = num => ('0' + num).slice(-2)
+                const getTimeFromDate = timestamp => {
+                    const date = new Date(timestamp * 1000);
+                    var hours = date.getHours()
+                    var min = date.getMinutes()
+                    var sec = date.getSeconds()
+                    
+                    return pad(hours) + ":" + pad(min) + ":" + pad(sec)
+                }
+                var time = getTimeFromDate(thedate)
                 
-                return pad(hours) + ":" + pad(min) + ":" + pad(sec)
+                var original_date = year + '/' + month + '/' + date + ' ' + time;
+                rows[i].date = original_date
+                console.log(rows[i])
             }
-            var time = getTimeFromDate(thedate)
-            
-            var original_date = year + '/' + month + '/' + date + ' ' + time;
-            rows[i].date = original_date
-            console.log(rows[i])
-        }
-    })
+        })
 
     const cookie = req.cookies['uid']
     admin
