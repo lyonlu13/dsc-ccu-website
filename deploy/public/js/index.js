@@ -57,10 +57,17 @@ window.onload = function(){
               let date = dateObj.getDate();
               return `${year}/${month}/${date}`;
           }
+          var typeString = ""
+          if(doc.data().type == 'event'){
+            typeString = '活動'
+          }
+          else{
+            typeString = '通知'
+          }
           announcement.innerHTML =
           `<ul id = "nodot" class="nodot">
             <a href="" class="no-color-line">
-              <li class="type-slider type-slider-${doc.data().type}">${doc.data().type}</li> 
+              <li class="type-slider type-slider-${doc.data().type}">${typeString}</li> 
               <li class="middle">${getDate()}</li>
               <li class="title">${doc.data().title}</li>
             </a>

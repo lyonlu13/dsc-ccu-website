@@ -38,16 +38,14 @@ window.onload = function(){
       .get()
       .then((querySnapshot) => {
         //清空列表資料
-        let element = document.getElementById("announcement-items");
-        while (element.firstChild) {
-          element.removeChild(element.firstChild);
-        }
-        //$( ".items" ).empty();
+        let announcemnetList = document.querySelector(".nodot");
+        announcemnetList.innerHTML="";
         querySnapshot.forEach((doc) => {
           console.log(doc.id, " => ", doc.data())
           //加入公告
-          var announcement = document.createElement("div");
-          announcement.classList.add("announcement-items");
+          var announcement = document.createElement("a");
+          announcement.classList.add("no-color-line");
+          announcement.herf=doc.data().link;
           let thedate = doc.data().date.toDate();
           function getDate()
           {
@@ -57,19 +55,23 @@ window.onload = function(){
               let date = dateObj.getDate();
               return `${year}/${month}/${date}`;
           }
+          var typeString = ""
+          if(doc.data().type == 'event'){
+            typeString = '活動'
+          }
+          else{
+            typeString = '通知'
+          }
           announcement.innerHTML =
-          `<ul id = "nodot" class="nodot">
-            <a href="" class="no-color-line">
-              <li class="type-slider type-slider-${doc.data().type}">${doc.data().type}</li> 
-              <li class="middle">${getDate()}</li>
-              <li class="title">${doc.data().title}</li>
-            </a>
-          </ul>`; 
-          document.getElementById("announcement-items").appendChild(announcement); 
+          `<li class="type-slider type-slider-${doc.data().type}">${typeString}</li> 
+          <li class="middle">${getDate()}</li>
+          <li class="title">${doc.data().title}</li>`; 
+          announcemnetList.appendChild(announcement); 
         });
       })
       .catch((error) => {
-          //Todo(處理錯誤)
+        var errorMessage = error.message;
+        alert(errorMessage)
       });
       }
 }
