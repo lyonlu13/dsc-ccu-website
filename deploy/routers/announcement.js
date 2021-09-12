@@ -28,11 +28,12 @@ router.get('/', function(req, res) {
         rows[i].date = original_date
       }
 
-    })
-    res.render('announcement',{
+      res.render('announcement',{
         index: false,
         announcement: true,
         rows: rows
+      })
+
     })
 })
 

@@ -22,12 +22,13 @@
     <div id="report-items">
       <% for(var i = 0; i < rows.length; i++){ %>
         <% if(rows[i].status == 'unread') { %> 
-          <ul class="nodot" 
+          <ul class="nodot"
             data-id="<%= rows[i].id %>"
-            data-status="<%= rows[i].status %> "
+            data-name="<%= rows[i].name %> "
+            data-status="<%= rows[i].status %>"
             data-date="<%= rows[i].date %>"
             data-email="<%= rows[i].email %>"
-            data-content="<%= rows[i].content %>"    >
+            data-content="<%= rows[i].content %> "   >
             <li class="type-slider type-slider-unread">未讀</li> 
             <li class="time"> <%= rows[i].date %> </li>
             <li class="user-email"> <%= rows[i].email %> </li>
@@ -36,12 +37,13 @@
             </a>
           </ul>
         <% }else if(rows[i].status == 'untreated') { %> 
-          <ul class="nodot" 
+          <ul class="nodot"
             data-id="<%= rows[i].id %>"
-            data-status="<%= rows[i].status %> "
+            data-name="<%= rows[i].name %> "
+            data-status="<%= rows[i].status %>"
             data-date="<%= rows[i].date %>"
             data-email="<%= rows[i].email %>"
-            data-content="<%= rows[i].content %>"    >
+            data-content="<%= rows[i].content %>"   >
             <li class="type-slider type-slider-untreated">未處理</li> 
             <li class="time"> <%= rows[i].date %> </li>
             <li class="user-email"> <%= rows[i].email %> </li>
@@ -52,10 +54,11 @@
         <% }else if(rows[i].status == 'finish') { %> 
           <ul class="nodot" 
             data-id="<%= rows[i].id %>"
-            data-status="<%= rows[i].status %> "
+            data-name="<%= rows[i].name %> "
+            data-status="<%= rows[i].status %>"
             data-date="<%= rows[i].date %>"
             data-email="<%= rows[i].email %>"
-            data-content="<%= rows[i].content %>"    >
+            data-content="<%= rows[i].content %>"   >
             <li class="type-slider type-slider-finish">完成</li> 
             <li class="time"> <%= rows[i].date %> </li>
             <li class="user-email"> <%= rows[i].email %> </li>
@@ -68,7 +71,7 @@
     </div>
 
     <!-- 處理回報視窗 -->
-    <div id="report-window" class="model show">
+    <div id="report-window" class="model">
       <!-- 視窗內容 -->
       <div class="report-window-content">
         <h2>回報</h2>
