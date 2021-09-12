@@ -20,7 +20,7 @@
 
     <div id="announcement-management">
       <!--新增公告按鈕-->
-      <span onclick="" id="add-announcement">新增公告</span>
+      <span id="add-announcement">新增公告</span>
       
       <div id="announcement-content">
         <% for(var i=0; i<rows.length; i++){ %> 
@@ -31,10 +31,10 @@
               data-type="<%= rows[i].type %> "
               data-link="<%= rows[i].link %> "
               data-title="<%= rows[i].title %> ">
-              <span class="material-icons delete-icon">
+              <span class="material-icons delete-icon deleteIcon">
                 clear
               </span>
-              <span class="material-icons edit-icon">
+              <span class="material-icons edit-icon editIcon">
                 edit
               </span>
               <span class="type-slider type-slider-event">活動</span>
@@ -49,10 +49,10 @@
               data-type="<%= rows[i].type %> "
               data-link="<%= rows[i].link %> "
               data-title="<%= rows[i].title %> ">
-              <span class="material-icons delete-icon">
+              <span class="material-icons delete-icon deleteIcon">
                 clear
               </span>
-              <span class="material-icons edit-icon">
+              <span class="material-icons edit-icon editIcon">
                 edit
               </span>
               <span class="type-slider type-slider-notification">通知</span>
@@ -72,34 +72,32 @@
       <!--新增公告 & 修改公告-->
       <div class="add-update-window-content" id="update-window">
         <div id="update-window-inner-content">
-          <h2>修改公告</h2>
-          <% for(var i=0; i<rows.length; i++) { %> 
-            <div id="date-icon-text">
-              <span class="material-icons" id="date-icon">
-                calendar_today
-              </span>
-              <input type="text" placeholder="日期" name="date" id="date" size="200" >
-            </div>
-            <div id="type-icon-text">
-              <span class="material-icons" id="type-icon">
-                calendar_today
-              </span>
-              <input type="text" placeholder="類別" name="type" id="type" size="200" >
-            </div>
-            <div id="title-icon-text">
-              <span class="material-icons" id="title-icon">
-                title
-              </span>
-              <input type="text" placeholder="標題" name="title-text" id="title-text" size="200" >
-            </div>
-            <div id="link-icon-text">
-              <span class="material-icons" id="link-icon">
-                link
-              </span>
-              <input type="text" placeholder="連結" name="link" id="link" size="200" >
-            </div>
-          <% } %> 
+          <h2>新增公告</h2>
+          <div id="date-icon-text">
+            <span class="material-icons" id="date-icon">
+              calendar_today
+            </span>
+            <input type="text" placeholder="日期" name="date" id="date" size="200" value="" >
           </div>
+          <div id="type-icon-text">
+            <span class="material-icons" id="type-icon">
+              format_quote
+            </span>
+            <input type="text" placeholder="類別" name="type" id="type" size="200" value="">
+          </div>
+          <div id="title-icon-text">
+            <span class="material-icons" id="title-icon">
+              title
+            </span>
+            <input type="text" placeholder="標題" name="title-text" id="title-text" size="200" value="">
+          </div>
+          <div id="link-icon-text">
+            <span class="material-icons" id="link-icon">
+              link
+            </span>
+            <input type="text" placeholder="連結" name="link" id="link" size="200" value="">
+          </div>
+        </div>
         <span onclick="" id="finish-button">完成</span>
         <span onclick="" id="cancel-button">取消</span>
       </div>
