@@ -23,8 +23,8 @@ var firebaseConfig = {
 
    //------------------------------------------------------------------警告視窗------------------------------------------------------------------ 
    //點選 
-   document.querySelectorAll("material-icons delete-icon").forEach(function (nodot){
-      nodot.onclick = function (){
+   document.querySelectorAll("delete-icon").forEach(function (delete-icon){
+    delete-icon.onclick = function (){
         document.getElementById("warning-window").classList.add("show");
       }
 
@@ -34,7 +34,7 @@ var firebaseConfig = {
     document.getElementById('delete-button').onclick = function(){
         document.getElementById("warning-window").classList.remove("show");
         Ready();
-        firebase.database().ref('announcement/'+nodot.data.id).remove();
+        firebase.database().ref('announcement/'+announcement-items.data.id).remove();
         window.location.reload();
     }
       
@@ -53,7 +53,7 @@ var firebaseConfig = {
 
     //------------------------------------------------------------------修改視窗------------------------------------------------------------------
     //點選 
-    document.querySelectorAll("material-icons edit-icon").forEach(function (nodot){
+    document.querySelectorAll("edit-icon").forEach(function (nodot){
         nodot.onclick = function (){
           document.getElementById("add-update-window").classList.add("show");
         }
@@ -68,27 +68,27 @@ var firebaseConfig = {
           <span class="material-icons" id="date-icon">
             calendar_today
           </span>
-          <input type="text" name="date" id="date" size="200" value="${nodot.dataset.date}">
+          <input type="text" name="date" id="date" size="200" value="${announcement-items.dataset.date}">
         </div>
         <div id="type-icon-text">
           <span class="material-icons" id="type-icon">
             calendar_today
           </span>
-          <input type="text" name="type" id="type" size="200" value="${nodot.dataset.type}">
+          <input type="text" name="type" id="type" size="200" value="${announcement-items.dataset.type}">
         </div>
         <div id="title-icon-text">
           <span class="material-icons" id="title-icon">
             title
           </span>
-          <input type="text" name="title-text" id="title-text" size="200" value="${nodot.dataset.titletext}">
+          <input type="text" name="title-text" id="title-text" size="200" value="${announcement-items.dataset.titletext}">
         </div>
         <div id="link-icon-text">
           <span class="material-icons" id="link-icon">
             link
           </span>
-          <input type="text" name="link" id="link" size="200" value="${nodot.dataset.link}">`
+          <input type="text" name="link" id="link" size="200" value="${announcement-items.dataset.link}">`
         Ready();
-        firebase.database().ref('announcement/'+nodot.dataset.id).update({
+        firebase.database().ref('announcement/'+announcement-items.dataset.id).update({
           date: dateValue,
           link: linkValue,
           title: titleValue,
@@ -104,11 +104,10 @@ var firebaseConfig = {
 
     //------------------------------------------------------------------增新視窗------------------------------------------------------------------
     //點選 
-    document.querySelectorAll("material-icons edit-icon").forEach(function (nodot){
-        nodot.onclick = function (){
-            document.getElementById("add-update-window").classList.add("show");
-        }
-      })
+    document.getElementById('add-announcement').onclick = function(){
+      document.getElementById("add-update-window").classList.add("show");
+    }
+
     
      //完成建
     document.getElementById('finish-button').onclick = function(){
@@ -140,7 +139,7 @@ var firebaseConfig = {
             <input type="text" placeholder="連結" name="link" id="link" size="200">
           </div>`;
         Ready();
-        firebase.database().ref('announcement/'+nodot.dataset.id).set({
+        firebase.database().ref('announcement/'+announcement-items.dataset.id).set({
           date: dateValue,
           link: linkValue,
           title: titleValue,
