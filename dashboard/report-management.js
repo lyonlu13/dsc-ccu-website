@@ -32,24 +32,23 @@ var firebaseConfig = {
                                                               <p>${nodot.dataset.name}</p>
                                                               <p>${nodot.dataset.content}</p>`;
       }
-
-    })
-
     //完成建
-    document.getElementById('dealwith-button').onclick = function(){
-      document.getElementById("report-window").classList.remove("show");
-      firebase.database().ref('report/'+nodot.dataset.id).update({
-        status: "finish"
-      });
-      window.location.reload();
-    }
+      document.getElementById('dealwith-button').onclick = function(){
+        document.getElementById("report-window").classList.remove("show");
+        firebase.database().ref('report/'+ nodot.dataset.id).update({
+          status: "finish"
+        });
+        window.location.reload();
+      }
 
     //取消
-    document.getElementById('cancel-button').onclick = function(){
-      document.getElementById("report-window").classList.remove("show");
-      firebase.database().ref('report/'+nodot.dataset.id).update({
-        status: "untreated"
-      });
-      window.location.reload();
-    }
+      document.getElementById('cancel-button').onclick = function(){
+        document.getElementById("report-window").classList.remove("show");
+        firebase.database().ref('report/'+nodot.dataset.id).update({
+          status: "untreated"
+        });
+        window.location.reload();
+      }
+    })
+
   }
