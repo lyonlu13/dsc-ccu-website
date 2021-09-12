@@ -39,7 +39,7 @@ var firebaseConfig = {
     document.getElementById('dealwith-button').onclick = function(){
       document.getElementById("report-window").classList.remove("show");
       firebase.database().ref('report/'+nodot.dataset.id).update({
-        status: 'finish',
+        status: "finish"
       });
       window.location.reload();
     }
@@ -48,7 +48,7 @@ var firebaseConfig = {
     document.getElementById('cancel-button').onclick = function(){
       document.getElementById("report-window").classList.remove("show");
       firebase.database().ref('report/'+nodot.dataset.id).update({
-        status: 'read',
+        status: "read"
       });
       window.location.reload();
     }
