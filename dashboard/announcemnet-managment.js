@@ -23,7 +23,7 @@ var firebaseConfig = {
 
    //------------------------------------------------------------------警告視窗------------------------------------------------------------------ 
    //點選 
-   document.querySelectorAll("deleteIcon").forEach(function (deleteIcon){
+   document.querySelectorAll(".deleteIcon").forEach(function (deleteIcon){
       deleteIcon.onclick = function (){
         document.getElementById("warning-window").classList.add("show");
       }
@@ -53,7 +53,7 @@ var firebaseConfig = {
 
     //------------------------------------------------------------------修改視窗------------------------------------------------------------------
     //點選 
-    document.querySelectorAll("editIcon announcement-items").forEach(function (editIcon){
+    document.querySelectorAll(".editIcon .announcement-items").forEach(function (editIcon){
       editIcon.onclick = function (){
           document.getElementById("add-update-window").classList.add("show");
         }
