@@ -42,7 +42,7 @@ var firebaseConfig = {
     document.getElementById('delete-cancel-button').onclick = function(){
         document.getElementById("warning-window").classList.remove("show");
     }
-//------------------------------------------------------------------初始化-----------------------------------------------------------------
+//----------------------------------------------------------------------初始化---------------------------------------------------------------------
     var dateValue, linkValue, titleValue, typeValue;
     function Ready(){
       dateValue = document.getElementById('date').value;

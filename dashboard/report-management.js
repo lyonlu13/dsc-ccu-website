@@ -48,7 +48,7 @@ var firebaseConfig = {
     document.getElementById('cancel-button').onclick = function(){
       document.getElementById("report-window").classList.remove("show");
       firebase.database().ref('report/'+nodot.dataset.id).update({
-        status: "read"
+        status: "untreated"
       });
       window.location.reload();
     }
