@@ -53,7 +53,7 @@ window.onload = function(){
 
   //------------------------------------------------------------------修改視窗------------------------------------------------------------------
   //點選 
-  document.querySelectorAll(".editIcon .announcement-items").forEach(function (editIcon){
+  document.querySelectorAll(".announcement-items .editIcon").forEach(function (editIcon){
     editIcon.onclick = function (){
         document.getElementById("add-update-window").classList.add("show");
       }

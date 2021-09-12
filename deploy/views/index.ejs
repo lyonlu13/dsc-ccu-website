@@ -50,7 +50,7 @@
                 <ul class="nodot">
                     <% for(var i = 0; i<rows.length; i++) {%>
                         <% if(rows[i].type == 'notification') {%>
-                                <a href="" class="no-color-line">
+                                <a href="<%= rows[i].link %>" class="no-color-line">
                                         <li class="type-slider type-slider-notification">
                                             通知
                                         </li>
@@ -62,7 +62,7 @@
                                         </li>
                                 </a>
                         <% }else { %> 
-                                    <a href="" class="no-color-line">
+                                    <a href="<%= rows[i].link %>" class="no-color-line">
                                         <li class="type-slider type-slider-event">
                                             活動
                                         </li> 
