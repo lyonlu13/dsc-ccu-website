@@ -13,44 +13,50 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 //指定資料庫物件
 var db = firebase.firestore();
-  
+
+var slide;
 //---------------------------------------------------------------公告------------------------------------------------------------------------------//
 //當按下全部鍵
-window.onload = function(){
-    document.getElementById('all').onclick = function(){
-      db.collection('announcement').orderBy('date')
+window.onload = function () {
+
+  slide = document.querySelector(".slide")
+  document.getElementById('all').onclick = function () {
+
+    slide.dataset.type = ""
+    slide.innerHTML = '全部'
+
+    db.collection('announcement').orderBy('date')
       .get()
       .then((querySnapshot) => {
         //清空列表資料
         let announcemnetList = document.querySelector(".nodot");
-        announcemnetList.innerHTML="";
+        announcemnetList.innerHTML = "";
         querySnapshot.forEach((doc) => {
           console.log(doc.id, " => ", doc.data())
           //加入公告
           var announcement = document.createElement("a");
           announcement.classList.add("no-color-line");
-          announcement.herf=doc.data().link;
+          announcement.herf = doc.data().link;
           let thedate = doc.data().date.toDate();
-          function getDate()
-          {
-              let dateObj = new Date(thedate);
-              let month = dateObj.getMonth()+1;
-              let year = dateObj.getFullYear();
-              let date = dateObj.getDate();
-              return `${year}/${month}/${date}`;
+          function getDate() {
+            let dateObj = new Date(thedate);
+            let month = dateObj.getMonth() + 1;
+            let year = dateObj.getFullYear();
+            let date = dateObj.getDate();
+            return `${year}/${month}/${date}`;
           }
           var typeString = ""
-          if(doc.data().type == 'event'){
+          if (doc.data().type == 'event') {
             typeString = '活動'
           }
-          else{
+          else {
             typeString = '通知'
           }
           announcement.innerHTML =
-          `<li class="type-slider type-slider-${doc.data().type}">${typeString}</li> 
+            `<li class="type-slider type-slider-${doc.data().type}">${typeString}</li> 
           <li class="middle">${getDate()}</li>
-          <li class="title">${doc.data().title}</li>`; 
-          announcemnetList.appendChild(announcement); 
+          <li class="title">${doc.data().title}</li>`;
+          announcemnetList.appendChild(announcement);
         });
       })
       .catch((error) => {
@@ -58,54 +64,57 @@ window.onload = function(){
         console.log(errorMessage)
         alert(errorMessage)
       });
-    }
+  }
 
-    //當按下通知
-    document.getElementById('notification').onclick = function(){
-      updateAnnouncement(0);
-    }
+  //當按下通知
+  document.getElementById('notification').onclick = function () {
+    updateAnnouncement(0);
+  }
 
-    //當按下活動
-    document.getElementById('event').onclick = function(){
-      updateAnnouncement(1);
-    }
+  //當按下活動
+  document.getElementById('event').onclick = function () {
+    updateAnnouncement(1);
+  }
 
 
-    function updateAnnouncement(type){
-      let condition = [["==","notification"],["==","event"]]
-      db.collection("announcement").where("type", condition[type][0], condition[type][1]).orderBy('date')
+  function updateAnnouncement(type) {
+
+
+    slide.innerHTML = ['通知', '活動'][type]
+    slide.dataset.type = ['notification', 'event'][type]
+    let condition = [["==", "notification"], ["==", "event"]]
+    db.collection("announcement").where("type", condition[type][0], condition[type][1]).orderBy('date')
       .get()
       .then((querySnapshot) => {
         //清空列表資料
         let announcemnetList = document.querySelector(".nodot");
-        announcemnetList.innerHTML="";
+        announcemnetList.innerHTML = "";
         querySnapshot.forEach((doc) => {
           console.log(doc.id, " => ", doc.data())
           //加入公告
           var announcement = document.createElement("a");
           announcement.classList.add("no-color-line");
-          announcement.herf=doc.data().link;
+          announcement.herf = doc.data().link;
           let thedate = doc.data().date.toDate();
-          function getDate()
-          {
-              let dateObj = new Date(thedate);
-              let month = dateObj.getMonth()+1;
-              let year = dateObj.getFullYear();
-              let date = dateObj.getDate();
-              return `${year}/${month}/${date}`;
+          function getDate() {
+            let dateObj = new Date(thedate);
+            let month = dateObj.getMonth() + 1;
+            let year = dateObj.getFullYear();
+            let date = dateObj.getDate();
+            return `${year}/${month}/${date}`;
           }
           var typeString = ""
-          if(doc.data().type == 'event'){
+          if (doc.data().type == 'event') {
             typeString = '活動'
           }
-          else{
+          else {
             typeString = '通知'
           }
           announcement.innerHTML =
-          `<li class="type-slider type-slider-${doc.data().type}">${typeString}</li> 
+            `<li class="type-slider type-slider-${doc.data().type}">${typeString}</li> 
           <li class="middle">${getDate()}</li>
-          <li class="title">${doc.data().title}</li>`; 
-          announcemnetList.appendChild(announcement); 
+          <li class="title">${doc.data().title}</li>`;
+          announcemnetList.appendChild(announcement);
         });
       })
       .catch((error) => {
@@ -113,5 +122,5 @@ window.onload = function(){
         console.log(errorMessage)
         alert(errorMessage)
       });
-    }
+  }
 }

@@ -205,21 +205,85 @@ html {
   position: relative;
 }
 
-.labels {
+.tag-bar {
   display: flex;
   justify-content: center;
+}
+
+.labels {
+  display: flex;
+  justify-content: space-between;
   font-size: 18px;
   margin: 30px;
+  width:300px;
+  position: relative;
 }
 
 .labels span {
   margin-left: 30px;
   margin-right: 30px;
+  position: relative;
+}
+
+.labels .slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:30px;
+  width:65px;
+  border-radius:100px;
+  background-color:red;
+  position: absolute;
+  top:-2.5px;
+  content:'red';
+  z-index: 5;
+  transition:0.3s;
+  left:10px;
+  color:white;
+}
+
+.labels .slide[data-type='notification'] {
+  background-color: #f5c43c;
+  left:115px;
+}
+
+.labels .slide[data-type='event'] {
+  background-color: #01814A;
+  left:225px;
 }
 
 .labels span:focus {
   background-color: rgb(253, 76, 76);
   color: white;
+}
+
+
+
+.labels .slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:30px;
+  width:65px;
+  border-radius:100px;
+  background-color:red;
+  position: absolute;
+  top:-2.5px;
+  content:'red';
+  z-index: 5;
+  transition:0.3s;
+  left:10px;
+  color:white;
+}
+
+.labels .slide[data-type='notification'] {
+  background-color: #f5c43c;
+  left:115px;
+}
+
+.labels .slide[data-type='event'] {
+  background-color: #01814A;
+  left:225px;
 }
 
 .items ul a {
@@ -414,14 +478,45 @@ html {
 }
 
 .announcement-labels {
+  position: relative;
   margin-top: 40px;
   margin-left: 40px;
+  padding:0 20px;
 }
 
 .announcement-labels span {
   font-size: 18px;
-  margin-right: 30px;
+  margin-right: 60px;
 }
+
+.announcement-labels .slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:30px;
+  width:65px;
+  border-radius:100px;
+  background-color:red;
+  position: absolute;
+  top:-2.5px;
+  content:'red';
+  z-index: 5;
+  transition:0.3s;
+  left:10px;
+  color:white;
+  font-size: 18px;
+}
+
+.announcement-labels .slide[data-type='notification'] {
+  background-color: #f5c43c;
+  left:110px;
+}
+
+.announcement-labels .slide[data-type='event'] {
+  background-color: #01814A;
+  left:210px;
+}
+
 
 .announcement-items {
   margin-top: 50px;
