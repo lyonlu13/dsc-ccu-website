@@ -136,7 +136,6 @@ var currentEditing = null;
               if(currentEditing){
                 //修改
                 db.collection('announcement').doc(currentEditing.trim()).update({
-                  date: dateValue,
                   link: linkValue,
                   pinned: pinnedValue,
                   title: titleValue,
@@ -147,7 +146,7 @@ var currentEditing = null;
               }else{
                 //新增
                 db.collection('announcement').doc().set({
-                  date: dateValue,
+                  date: new Date(),
                   link: linkValue,
                   pinned: pinnedValue,
                   title: titleValue,
