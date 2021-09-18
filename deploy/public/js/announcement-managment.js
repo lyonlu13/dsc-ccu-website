@@ -63,7 +63,7 @@ var currentEditing = null;
         document.getElementById('add-announcement').onclick = function(){
           currentEditing = null;
           document.getElementById("update-window-inner-content").innerHTML = `
-                  <h2>增新公告</h2>
+                  <h2>新增公告</h2>
                   <div id="date-icon-text">
                     <span class="material-icons" id="date-icon">
                       calendar_today
