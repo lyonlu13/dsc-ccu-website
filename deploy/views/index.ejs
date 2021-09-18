@@ -57,7 +57,7 @@
 
                             <div class="items">
                                 <ul id="nodot" class="nodot">
-                                    <a href="" class="no-color-line">
+                                    <a href="<%= rows[i].link %>" target="_blank" rel="noreferrer noopener" class="no-color-line">
                                         <li class="type-slider type-slider-notification">通知</li>
                                         <li class="middle">
                                             <%= rows[i].date %>
@@ -69,22 +69,22 @@
                                 </ul>
                             </div>
 
-                            <% }else { %>
-                                <div class="items">
-                                    <ul id="nodot" class="nodot">
-                                        <a href="" class="no-color-line">
-                                            <li class="type-slider type-slider-event">活動</li>
-                                            <li class="middle">
-                                                <%= rows[i].date %>
-                                            </li>
-                                            <li class="title">
-                                                <%= rows[i].title %>
-                                            </li>
-                                        </a>
-                                    </ul>
-                                </div>
-                                <% } %>
-                                    <% } %>
+                        <% }else { %>
+                            <div class="items">
+                                <ul id="nodot" class="nodot">
+                                    <a href="<%= rows[i].link %>" target="_blank" rel="noreferrer noopener" class="no-color-line">
+                                        <li class="type-slider type-slider-event">活動</li>
+                                        <li class="middle">
+                                            <%= rows[i].date %>
+                                        </li>
+                                        <li class="title">
+                                            <%= rows[i].title %>
+                                        </li>
+                                    </a>
+                                </ul>
+                            </div>
+                        <% } %>
+                    <% } %>
                 </div>
             </div>
 
