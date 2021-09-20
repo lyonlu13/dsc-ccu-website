@@ -68,7 +68,7 @@ var currentEditing = null;
                     <span class="material-icons" id="date-icon">
                       calendar_today
                     </span>
-                    <input type="text" name="date" id="date" size="200" placeholder="日期">
+                    <input type="date" name="date" id="date" size="200" placeholder="日期">
                   </div>
                   <div id="type-icon-text">
                     <span class="material-icons" id="type-icon">
@@ -100,7 +100,7 @@ var currentEditing = null;
                         <span class="material-icons" id="date-icon">
                           calendar_today
                         </span>
-                        <input type="text" name="date" id="date" size="200" value="${item.dataset.date}" placeholder="日期">
+                        <input type="date" name="date" id="date" size="200" value="${item.dataset.date}" placeholder="日期">
                       </div>
                       <div id="type-icon-text">
                         <span class="material-icons" id="type-icon">

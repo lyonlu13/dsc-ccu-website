@@ -30,21 +30,9 @@ router.get('/announcement', function(req, res) {
                 let month = new Date(timestamp).getMonth() + 1;
                 let year = new Date(timestamp).getFullYear();
                 let date = new Date(timestamp).getDate();
-                //stamp -> exact
-                const pad = num => ('0' + num).slice(-2)
-                const getTimeFromDate = timestamp => {
-                    const date = new Date(timestamp * 1000);
-                    var hours = date.getHours()
-                    var min = date.getMinutes()
-                    var sec = date.getSeconds()
-                    
-                    return pad(hours) + ":" + pad(min) + ":" + pad(sec)
-                }
-                var time = getTimeFromDate(thedate)
                 
-                var original_date = year + '/' + month + '/' + date + ' ' + time;
+                var original_date = year + '/' + month + '/' + date;
                 rows[i].date = original_date
-                console.log(rows[i])
             }
         })
 
@@ -89,7 +77,6 @@ router.get('/report', function(req, res) {
             var original_date = year + '/' + month + '/' + date;
             rows[i].date = original_date
         }
-        // console.log(rows[0].date)
     })
     const cookie = req.cookies['uid']
     admin
