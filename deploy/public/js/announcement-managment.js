@@ -94,13 +94,22 @@ var currentEditing = null;
           editIcon.onclick = function (){
               const item = editIcon.parentElement;
               currentEditing = item.dataset.id;
+              let thedate = item.dataset.date;
+              function getDate() {
+                let dateObj = new Date(thedate);
+                let correctMonth =  dateObj.getMonth()+1;
+                let month = correctMonth>9?correctMonth.toString() : '0' + correctMonth;
+                let year = dateObj.getFullYear();
+                let date = dateObj.getDate()>9?dateObj.getDate().toString() : '0' + dateObj.getDate();
+                return `${year}-${month}-${date}`;
+              }
               document.getElementById("update-window-inner-content").innerHTML = `
                       <h2>修改公告</h2>
                       <div id="date-icon-text">
                         <span class="material-icons" id="date-icon">
                           calendar_today
                         </span>
-                        <input type="date" name="date" id="date" size="200" value="${item.dataset.date}" placeholder="日期">
+                        <input type="date" name="date" id="date" size="200" value="${getDate()}" placeholder="日期">
                       </div>
                       <div id="type-icon-text">
                         <span class="material-icons" id="type-icon">
@@ -133,9 +142,11 @@ var currentEditing = null;
           //--------------------------------------------------------完成功能--------------------------------------------------------
             document.getElementById('finish-button').onclick = function(){
               Ready();
+              dateValue = dateValue? dateValue: new Date();
               if(currentEditing){
                 //修改
                 db.collection('announcement').doc(currentEditing.trim()).update({
+                  date: dateValue,
                   link: linkValue,
                   pinned: pinnedValue,
                   title: titleValue,
@@ -146,7 +157,7 @@ var currentEditing = null;
               }else{
                 //新增
                 db.collection('announcement').doc().set({
-                  date: new Date(),
+                  date: dateValue,
                   link: linkValue,
                   pinned: pinnedValue,
                   title: titleValue,
