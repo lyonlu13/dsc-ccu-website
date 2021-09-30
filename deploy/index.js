@@ -50,8 +50,8 @@ router.get('/', function (req, res) {
 router.get('/api/logout', (req, res) =>{
   if(req.query.BYE === 'BYE'){
       console.log('called!')
-      res.clearCookie()
-      res.json({status: 'logout'})
+      res.clearCookie('uid', {path:'/'})
+      res.json({status:'logout'})
   }
   else{
       res.redirect('/')
