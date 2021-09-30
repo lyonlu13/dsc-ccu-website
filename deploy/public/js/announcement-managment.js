@@ -18,8 +18,15 @@ window.onload = function(){
 
 //------------------------------------------------------------------登出功能------------------------------------------------------------------
   document.getElementById('logout').onclick = function(){
-    document.cookie = `uid=;`;
-    location.assign('login.html');
+    fetch('management/api/logout')
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(result) {
+      if(result.status){
+        location.assign('login.html');;
+      }      
+    });
   }
 
 //------------------------------------------------------------------刪除警告視窗------------------------------------------------------------------ 
