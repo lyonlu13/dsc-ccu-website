@@ -142,7 +142,7 @@ var currentEditing = null;
           //--------------------------------------------------------完成功能--------------------------------------------------------
             document.getElementById('finish-button').onclick = function(){
               Ready();
-              dateValue = dateValue? dateValue: new Date();
+              dateValue = dateValue? new Date(dateValue): new Date();
               if(currentEditing){
                 //修改
                 db.collection('announcement').doc(currentEditing.trim()).update({
