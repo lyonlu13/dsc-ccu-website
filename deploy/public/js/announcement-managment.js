@@ -18,13 +18,13 @@ window.onload = function(){
 
 //------------------------------------------------------------------登出功能------------------------------------------------------------------
   document.getElementById('logout').onclick = function(){
-    fetch('../api/logout')
+    fetch('./api/logout?BYE=BYE')
     .then(function(response) {
       return response.json();
     })
     .then(function(result) {
       if(result.status){
-        location.assign('login.html');;
+        location.assign('/login');;
       }      
     });
   }

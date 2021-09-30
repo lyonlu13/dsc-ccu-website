@@ -20,14 +20,21 @@ var currentEditing = null;
 window.onload = function(){
   document.getElementById("report-window").classList.remove("show");
 
-  //登出
-  document.getElementById('logout').onclick = function(){
-    document.cookie = `uid=;`;
-    location.assign('login.html');
-  }
+//------------------------------------------------------------------登出功能------------------------------------------------------------------
+document.getElementById('logout').onclick = function(){
+  fetch('./api/logout?BYE=BYE')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(result) {
+    if(result.status){
+      location.assign('/login');;
+    }      
+  });
+}
 
 
- //點選 
+ //------------------------------------------------------------------點選------------------------------------------------------------------
   document.querySelectorAll(".nodot").forEach(function (nodot){
     nodot.onclick = function (){
       document.getElementById("report-window").classList.add("show");
