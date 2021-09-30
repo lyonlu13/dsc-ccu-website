@@ -18,7 +18,7 @@ window.onload = function(){
 
 //------------------------------------------------------------------登出功能------------------------------------------------------------------
   document.getElementById('logout').onclick = function(){
-    fetch('management/api/logout')
+    fetch('../api/logout')
     .then(function(response) {
       return response.json();
     })

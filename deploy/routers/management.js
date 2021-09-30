@@ -54,6 +54,7 @@ router.get('/announcement', function(req, res) {
     })
 })
 
+
 router.get('/report', function(req, res) {
     //fetch data from db
     const db = admin.firestore()

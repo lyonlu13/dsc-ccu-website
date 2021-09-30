@@ -46,6 +46,18 @@ router.get('/', function (req, res) {
   })
 })
 
+//clear cookie
+router.get('/api/logout', (req, res) =>{
+  if(req.query.BYE === 'BYE'){
+      console.log('called!')
+      res.clearCookie()
+      res.json({status: 'logout'})
+  }
+  else{
+      res.redirect('/')
+  }
+})
+
 
 //匯入公告
 var announcement = require('./routers/announcement.js');
